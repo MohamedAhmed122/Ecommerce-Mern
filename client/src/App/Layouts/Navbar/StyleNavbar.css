@@ -1,12 +1,16 @@
 .navbar{
+    top: 0;
     background-color: #000;
+    width: 100%;
     color:white;
     height: 80px;
     display: flex;
     padding: 10px;
     justify-content: center;
     align-items: center;
+    position: fixed;
     text-transform: uppercase;
+    z-index: 100;
 }
 .logo{
     margin:20px 40px;

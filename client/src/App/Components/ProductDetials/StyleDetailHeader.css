@@ -1,0 +1,23 @@
+.detail_header{
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+.detail_header img{
+    margin: 20px;
+    border-radius: 10px;
+    height: 600px;
+    width: 500px;
+    object-fit: cover;
+}
+.list_item{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.list_item p{
+    display: block;
+}
+.detail_header__right{
+    margin-left: 70px;
+}
