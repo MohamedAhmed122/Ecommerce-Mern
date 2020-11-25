@@ -1,0 +1,40 @@
+.navbar{
+    background-color: #000;
+    color:white;
+    height: 80px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+.logo{
+    margin:20px 40px;
+    font-size: 20px;
+}
+.links{
+    margin-left: auto;
+    margin-right: 40px;
+    padding:30px ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.links .link{
+    margin-left: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    
+    
+}
+.navbar__search{
+    margin-left: 60px;
+}
+.links .MuiSvgIcon-root{
+    margin-left: 6px;
+    
+}
