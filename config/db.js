@@ -8,9 +8,9 @@ const connectDB = async () =>{
             useUnifiedTopology: true,
             useCreateIndex: true
         })
-        console.log(`mongodb connected on ${connection.connection.host}`)
+        console.log(`mongodb connected on ${connection.connection.host}` .cyan.underline)
     } catch (error) {
-        console.log(`Error is comming from mongo connection ${error.message}`)
+        console.log(`Error is comming from mongo connection ${error.message}`.red.bold )
         process.exit(1)
         
     }
