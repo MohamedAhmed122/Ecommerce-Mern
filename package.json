@@ -1,0 +1,22 @@
+{
+  "name": "elecotrinc-ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedAhmed122/Ecommerce-Mern.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohamedAhmed122/Ecommerce-Mern/issues"
+  },
+  "homepage": "https://github.com/MohamedAhmed122/Ecommerce-Mern#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
