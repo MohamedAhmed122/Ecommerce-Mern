@@ -1,8 +1,8 @@
 import React from 'react'
-import { Box, Card, List, ListItem,  ListItemText,  Typography } from '@material-ui/core'
+import { Box, Card, Typography } from '@material-ui/core'
 import Rating from '@material-ui/lab/Rating'
-import CustomButton from '../CustomButton/CustomButton'
 import './StyleDetailHeader.css'
+import Table from './Table/Table'
 
 export default function DetialsHeader({product}) {
 
@@ -21,16 +21,16 @@ export default function DetialsHeader({product}) {
                 <Typography variant="h6"  component="h3">
                     {brand}
                 </Typography>
-               
-                <CustomButton title='Add to cart' />
-                <div>
-                    <Box component="fieldset" mb={3} borderColor="transparent">
+               <Table price={price} countInStock={countInStock}/>
+                <div className='detials_header__rating'>
+                    <Box className='detials_header__box' component="fieldset" mb={3} borderColor="transparent">
                         <Rating name="pristine" value={rating} />
                     </Box>
                     <Typography variant="body2" color="textSecondary" component="p">
                         ({numReviews? numReviews : 0 }) reviews
                     </Typography>
                 </div>
+              
             </div>
         </div>
     )

@@ -4,9 +4,9 @@
     align-items: center;
 }
 .detail_header img{
-    margin: 20px;
+    margin: 10px;
     border-radius: 10px;
-    height: 600px;
+    height: 500px;
     width: 500px;
     object-fit: cover;
 }
@@ -20,4 +20,24 @@
 }
 .detail_header__right{
     margin-left: 70px;
+}
+
+.detials_header__rating{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 30px;
+}
+.detials_header__box{
+    margin-top: 24px;
+    margin-right: 10px;
+}
+
+
+
+.description{
+    width: 600px;
+}
+.product_description{
+    margin-top: 30px;
 }

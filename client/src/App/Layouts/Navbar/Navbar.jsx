@@ -9,7 +9,11 @@ import './StyleNavbar.css'
 export default function Navbar() {
     return (
         <div className="navbar">
-            <div className='logo'>Logo</div>
+            <div className='logo'>
+                <Link to='/'>
+                    Logo
+                </Link>
+            </div>
             <div className='navbar__search'> 
                 <CustomInput Icon={SearchIcon}  placeholder='Search for products'/>
             </div>

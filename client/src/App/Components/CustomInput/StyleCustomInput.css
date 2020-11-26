@@ -1,5 +1,5 @@
 .custom_input{
-    width:350px;
+    width: 350px;
     height: 40px;
     border-radius: 25px;
     background-color: #efefef;
@@ -11,7 +11,7 @@
 .custom_input__input{
     outline-width: 0;
     border: none;
-    width: auto;
+    width: 350px;
     height: auto;
     background-color: transparent;
     
