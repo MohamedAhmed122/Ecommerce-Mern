@@ -8,6 +8,6 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 
 import RootReducer from "./Root-Reducer";
 
-const middleWare = [logger, thunk];
+const middleWare = [thunk];
 
-export const store = createStore(RootReducer, composeWithDevTools(applyMiddleware(...middleWare)))
+export const store = createStore(RootReducer, composeWithDevTools(applyMiddleware(...middleWare))) 

@@ -10,10 +10,10 @@ import './StyleCard.css'
 
 export default function ProductCard({product}) {
     const history = useHistory()
-    const {name, numReviews,rating, price,image, id} = product;
+    const {name, numReviews,rating, price,image, _id} = product;
     return (
         <div>
-            <Card className='card' onClick={() =>history.push(`/product/${id}`)}> 
+            <Card className='card' onClick={() =>history.push(`/product/${_id}`)}> 
                 <CardActionArea>
                     <CardMedia 
                     style={{height: 250}}
@@ -37,7 +37,7 @@ export default function ProductCard({product}) {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button size="small" color='default' onClick={() =>history.push(`/product/${id}`)}>
+                    <Button size="small" color='default' onClick={() =>history.push(`/product/${_id}`)}>
                         View
                     </Button>
                 </CardActions>
