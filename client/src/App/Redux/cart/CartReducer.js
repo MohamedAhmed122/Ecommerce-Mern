@@ -1,22 +1,35 @@
-import { addItemToCart } from './utils.js'
+// import { addItemToCart } from './utils.js'
 import { ADD_CART_ITEM, REMOVE_CART_ITEM } from "./CartType";
 
 const initialState={
-    cardItems:[]
+    carts:[]
 }
 
 
 const cartReducer = (state = initialState, {type,payload})=>{
     switch(type){
         case ADD_CART_ITEM:
-            return{
+            const item = payload
+
+            const existItem = state.carts.find((x) => x.product === item.product)
+      
+            if (existItem) {
+              return {
                 ...state,
-                cardItems: addItemToCart(state.cardItems, payload)
+                carts: state.carts.map((x) =>
+                  x.product === existItem.product ? item : x
+                ),
+              }
+            } else {
+              return {
+                ...state,
+                carts: [...state.carts, item],
+              }
             }
         case REMOVE_CART_ITEM:
             return{
                 ...state,
-                cardItems: state.cardItems.filter(item => item.id !== payload.id )
+                carts: state.carts.filter(item => item.id !== payload.id )
             }
         default: return state
     }

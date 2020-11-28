@@ -9,7 +9,7 @@ export default function Table({price, countInStock}) {
 
     const history = useHistory()
     const { id } = useParams()
-    const [qty, setQty] = useState(0)
+    const [qty, setQty] = useState(1)
 
     const handleSubmit = () =>{
         history.push(`/cart/${id}?qty=${qty}`)
