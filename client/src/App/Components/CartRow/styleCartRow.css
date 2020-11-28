@@ -1,0 +1,32 @@
+.cartRow{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 20px;
+    margin: 20px 0px;
+    
+}
+
+.cartRow__image{
+    width:18vw;
+    margin: 10px;
+}
+.cartRow__image img{
+    width: '90%';
+    height: 130px;
+    margin: 7px;
+}
+.cartRow__title{
+    width:28vw;
+    margin: 10px;
+}
+.cartRow__price, .cartRow__from, .cartRow__delete{
+    width:18vw;
+}
+.cartRow__price p{
+    text-align: center;
+}
+.divider{
+    border: 1px solid lightgray;
+    width: 100%;
+}

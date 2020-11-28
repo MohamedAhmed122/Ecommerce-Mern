@@ -3,6 +3,7 @@ import { useParams, useLocation} from 'react-router-dom';
 import {useDispatch, useSelector } from 'react-redux'
 
 import {addToCart} from '../../Redux/cart/CartAction'
+import CartRow from '../../Components/CartRow/CartRow';
 
 export default function CartPage() {
    const dispatch = useDispatch()
@@ -21,15 +22,18 @@ export default function CartPage() {
    console.log(carts);
 
     return (
-        <div style={{marginTop: 90}}>
-            <h1>Hello from the cart Component</h1>
-           { 
-               carts?.map(item =>(
-                   <div key={item.name}>
-                       <h1 >{item.name} {item.qty}</h1>
-                    </div>
-               ))
-           }
+        <div style={{marginTop: 90, display: 'flex'}}>
+            <div style={{width: '70%'}}>
+                { 
+                    carts?.map(item =>(
+                        <CartRow key={item.name} item={item}>
+                            
+                        </CartRow>
+                    ))
+                }
+                
+            </div>
+            <div style={{flex: 0.25}}></div>
         </div>
     )
 }

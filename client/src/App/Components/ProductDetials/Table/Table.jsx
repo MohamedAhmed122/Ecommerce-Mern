@@ -1,7 +1,8 @@
-import { Card, FormControl, MenuItem, Select } from '@material-ui/core'
+import { Card, MenuItem } from '@material-ui/core'
 import React, { useState } from 'react'
 import {useHistory, useParams} from 'react-router-dom'
 import CustomButton from '../../CustomButton/CustomButton'
+import FromSelect from '../../FromSelect/FromSelect'
 
 import './StyleTable.css'
 
@@ -26,16 +27,13 @@ export default function Table({price, countInStock}) {
             </div>
             <div className='table__item'>
                 <p>Qyt</p>
-               <FormControl>
-                   <Select variant='outlined' value={qty} onChange={(e)=>setQty(e.target.value)}>
-                   <MenuItem value={countInStock}> {countInStock} </MenuItem>
-                       {
-                           [...Array(countInStock).keys()].map(num =>(
-                                <MenuItem key={num+1} value={num+1}>{num +1}</MenuItem>
-                           ))
-                       }
-                   </Select>
-               </FormControl>
+                <FromSelect selectValue={qty} onChange={(e)=>setQty(e.target.value)}maniValue={countInStock} >
+                {
+                            [...Array(countInStock).keys()].map(num =>(
+                                    <MenuItem key={num+1} value={num+1}>{num +1}</MenuItem>
+                            ))
+                        }
+                </FromSelect>
             </div>
             <div className='table__bnt'>
                <CustomButton title='Add To Cart' disabled={countInStock === 0} onClick={handleSubmit} />
