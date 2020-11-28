@@ -1,31 +1,30 @@
-import React, { useEffect, useState } from 'react'
- import ProductCard from '../../Components/ProductCard/ProductCard'
- import axios from 'axios'
+import React, { useEffect } from 'react'
 
+import { productList } from '../../Redux/productList/ProductListAction'
+
+import ProductCard from '../../Components/ProductCard/ProductCard'
+import {  useDispatch, useSelector } from 'react-redux'
 
 import './style.css'
+import Alert from '../../Components/Alert/Alert'
+import Loading from '../../Common/Loading'
+
 
 export default function HomePage() {
 
-    const [products, setProducts] = useState([])
+  const { products, loading, error } = useSelector(state => state.productList)
+  const dispatch = useDispatch();
     
     useEffect(()=>{
-      
-      const fetchData = async()=>{
-        try {
-            const {data} = await axios.get(`/api/products`)
-            setProducts(data)
-            
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    fetchData();
-    },[])
+      dispatch(productList())
+    
+    },[dispatch])
 
-
+    if( loading) return <Loading />
     return (
+      <div>
         <div className='home_page'  >
+          {error && <Alert  severity="error">{error}</Alert>}
           {
               products.map(product =>(
                   <ProductCard key={product.name} product={product}  />
@@ -33,6 +32,7 @@ export default function HomePage() {
             )
           }
         </div>
+      </div>
     )
 }
 
