@@ -9,6 +9,7 @@ export const productDetail = (id) => async(dispatch) =>{
 
         const { data } = await axios.get(`/api/products/${id}`);
         dispatch({type: PRODUCT_DETAIL_SUCCESS, payload : data})
+        
     } catch (error) {
         dispatch({
             type: PRODUCT_DETAIL_ERROR,

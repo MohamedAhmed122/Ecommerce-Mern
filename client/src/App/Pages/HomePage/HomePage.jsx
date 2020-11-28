@@ -20,7 +20,7 @@ export default function HomePage() {
     
     },[dispatch])
 
-    if( loading) return <Loading />
+    if( loading) return <Loading  />
     return (
       <div>
         <div className='home_page'  >
