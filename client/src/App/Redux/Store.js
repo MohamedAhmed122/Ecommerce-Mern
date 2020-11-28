@@ -14,4 +14,4 @@ const middleWare = [thunk];
 export const store = createStore(RootReducer, composeWithDevTools(applyMiddleware(...middleWare))) 
 
 
-// export const persistor  = persistStore(store)
+ export const persistor  = persistStore(store)

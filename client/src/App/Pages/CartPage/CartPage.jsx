@@ -25,7 +25,9 @@ export default function CartPage() {
             <h1>Hello from the cart Component</h1>
            { 
                carts?.map(item =>(
-                   <h1>{item.name} {item.qty}</h1>
+                   <div key={item.name}>
+                       <h1 >{item.name} {item.qty}</h1>
+                    </div>
                ))
            }
         </div>

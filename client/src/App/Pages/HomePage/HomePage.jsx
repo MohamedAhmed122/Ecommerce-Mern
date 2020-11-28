@@ -6,7 +6,7 @@ import ProductCard from '../../Components/ProductCard/ProductCard'
 import {  useDispatch, useSelector } from 'react-redux'
 
 import './style.css'
-import Alert from '../../Components/Alert/Alert'
+import Alert from '../../Common/Alert'
 import Loading from '../../Common/Loading'
 
 

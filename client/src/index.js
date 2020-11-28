@@ -10,11 +10,11 @@ import {persistor, store} from  './App/Redux/Store'
 
 ReactDOM.render(
     <Provider store={store}>
-      {/* <PersistGate persistor={persistor}> */}
+      <PersistGate persistor={persistor}>
         <BrowserRouter >
           <App />
         </BrowserRouter>
-      {/* </PersistGate> */}
+      </PersistGate>
     </Provider>,
   document.getElementById('root')
 );
