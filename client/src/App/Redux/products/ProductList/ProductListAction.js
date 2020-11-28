@@ -1,5 +1,5 @@
-import axios from 'axios'
 import { PRODUCT_LIST_SUCCESS, PRODUCT_LIST_REQUEST, PRODUCT_LIST_ERROR} from './ProductListTypes'
+import axios from 'axios'
 
 
 export const productList = () => async(dispatch) =>{

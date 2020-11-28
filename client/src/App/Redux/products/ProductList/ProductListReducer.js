@@ -1,4 +1,4 @@
-import { PRODUCT_LIST_SUCCESS, PRODUCT_LIST_REQUEST, PRODUCT_LIST_ERROR} from '../ProductListTypes'
+import { PRODUCT_LIST_SUCCESS, PRODUCT_LIST_REQUEST, PRODUCT_LIST_ERROR} from './ProductListTypes'
 
 
 const initialState ={

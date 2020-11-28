@@ -1,4 +1,4 @@
-import { Backdrop, CircularProgress } from '@material-ui/core'
+import { Backdrop } from '@material-ui/core'
 import Lottie from 'react-lottie';
 import Loader from '../../Animation/8721-loading.json'
 import React from 'react'
