@@ -13,6 +13,10 @@ import Loading from '../../Common/Loading'
 export default function HomePage() {
 
   const { products, loading, error } = useSelector(state => state.productList)
+  const {currentUser, isAuthenticated} = useSelector(state =>state.user)
+  if(isAuthenticated){
+    console.log(currentUser);
+  }
   const dispatch = useDispatch();
     
     useEffect(()=>{

@@ -1,7 +1,7 @@
 import { USER_LOGIN_ERROR, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS } from "./userTypes";
 
 const initialState ={
-    currentUSer: null,
+    currentUser: null,
     isAuthenticated: false,
     loading: false,
     error: null
@@ -19,7 +19,7 @@ const userReducer = (state =initialState, { type, payload } ) =>{
                 ...state,
                 loading: false,
                 isAuthenticated: true,
-                currentUSer: payload,
+                currentUser: payload,
             }
         case USER_LOGIN_ERROR:
             return{
