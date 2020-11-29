@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useField, Form } from "formik";
+import { useField } from "formik";
 import { FormControl, TextField } from '@material-ui/core';
 const FormText = ({ label, ...props }) =>{
 
@@ -13,6 +13,7 @@ const FormText = ({ label, ...props }) =>{
                 label={label} 
                 {...field} 
                 {...props}
+                error={meta.error && meta.touched}
                 fullWidth
                 InputLabelProps={{
                     shrink: true,

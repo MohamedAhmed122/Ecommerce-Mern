@@ -1,15 +1,14 @@
 import React from 'react'
 
-import{ Formik, Form, ErrorMessage } from 'formik'
+import{ Formik, Form } from 'formik'
 import * as Yup from 'yup'
 
 import CustomButton from '../CustomButton/CustomButton'
-import TextField from '@material-ui/core/TextField';
+import FromText from '../Forms/FromText';
 
 import { Card } from '@material-ui/core';
 
 import './styleLoginForm.css'
-import FromText from '../Forms/FromText';
 
 
 const validationSchema = Yup.object({
@@ -32,7 +31,7 @@ export default function LoginForm() {
 
                         <Form>
                             <FromText  label="email"   name='email' />
-                            <FromText  label="password"   name='password' />
+                            <FromText type='password'  label="password"   name='password' />
                             <div className='btn'>
                                 <CustomButton 
                                     disabled={!dirty || !isValid || isSubmitting}
