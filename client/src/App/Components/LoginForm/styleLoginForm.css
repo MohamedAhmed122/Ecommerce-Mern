@@ -1,0 +1,30 @@
+.card_login_form{
+    width: 70vw;
+}
+
+.login_form_container{
+    margin: 20px;
+    padding: 20px;
+
+}
+
+.login_form_container .input{
+    margin-top: 30px;
+   
+
+}
+
+.login_form_container .label{
+    color: #D32F2F;
+    border: 1px solid #FFCDD2;
+    border-radius: 8px;
+    width: 240px;
+    padding: 5px;
+    margin-top: 10px;
+    display: block;   
+}
+.login_form_container .btn{
+    display: flex;
+    justify-content: flex-end;
+    margin: 30px 0px;
+}

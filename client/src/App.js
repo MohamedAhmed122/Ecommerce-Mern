@@ -5,6 +5,7 @@ import Footer from './App/Layouts/Footer/Footer';
 import Navbar from './App/Layouts/Navbar/Navbar';
 import CartPage from './App/Pages/CartPage/CartPage';
 import HomePage from './App/Pages/HomePage/HomePage';
+import LoginScreen from './App/Pages/LoginScreen/LoginScreen';
 import ProductDetailedPage from './App/Pages/ProductDetailedPage/ProductDetailedPage';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route exact path='/' component={HomePage} />
             <Route  path='/product/:id' component={ProductDetailedPage} />
             <Route  path='/cart/:id?' component={CartPage} />
+            <Route path='/login' component={LoginScreen} />
           </Switch>
         <Footer />
 
