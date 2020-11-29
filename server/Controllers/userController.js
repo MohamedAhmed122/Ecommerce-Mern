@@ -1,6 +1,6 @@
 import User from '../models/userModel.js'
 import asyncHandler from 'express-async-handler'
-
+import {generateWebToken} from '../utility/generateWebToken.js'
 
 
 // @desc   Auth user & get Token
@@ -17,7 +17,7 @@ export const authUser = asyncHandler (async (req, res) =>{
          email: user.email,
          name: user.name,
          isAdmin: user.isAdmin,
-         token: null
+         token: generateWebToken(user._id)
 
       })
    }else{
