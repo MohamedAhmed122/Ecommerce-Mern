@@ -8,7 +8,7 @@ import Alert from '../../Common/Alert'
 
 import './StyleCartPage.css'
 
-import {addToCart} from '../../Redux/cart/CartAction'
+import {addToCart, removeItemFromCart} from '../../Redux/cart/CartAction'
 import { calculateTotal } from '../../utilities/utility';
 
 
@@ -29,28 +29,33 @@ export default function CartPage() {
    },[dispatch, id, qty])
 
    const handleGoBack = () =>  history.goBack()
-   
 
    const handleCheckout = () => history.push('/login?redirect=shipping')
-   
+
 
     return (
         <div className='cartPage'>
-            {carts.length < 0?  <Alert severity="info">Your Cart is Empty</Alert> : '' }
+            {carts.length <= 0 &&  
+                <div className='cartPage_alert'> 
+                    <Alert severity="info">Your Cart is Empty</Alert> 
+                </div>
+            }
             { 
                 carts?.map(item =>(
-                    <CartRow qty={qty} key={item.name} item={item}>
-                        
-                    </CartRow>
+                    <CartRow qty={qty} key={item.name} item={item}  />
                 ))
             }
-            <div className='cartPage_total'>
-                <p>Total {calculateTotal(carts)} $</p>
-            </div>
-            <div className='btn_group'>
-                <CustomButton inverted onClick={handleGoBack} title='GO Back' />
-                <CustomButton title='To Checkout' onClick={handleCheckout}/>
-            </div>
+           { carts.length > 0 &&
+                <>
+                    <div className='cartPage_total'>
+                        <p>Total {calculateTotal(carts)} $</p>
+                    </div>
+                    <div className='btn_group'>
+                        <CustomButton inverted onClick={handleGoBack} title='GO Back' />
+                        <CustomButton title='To Checkout' onClick={handleCheckout}/>
+                    </div>
+                </>
+            }
         </div>
     )
 }

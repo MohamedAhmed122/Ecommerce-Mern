@@ -2,7 +2,12 @@
     margin-top: 120px;
     margin-left: 10%;
     width:70%;
-
+    
+}
+.cartPage_alert{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .cartPage_cart{
 }

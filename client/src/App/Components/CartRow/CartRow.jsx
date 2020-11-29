@@ -2,16 +2,24 @@ import { Card, Container, IconButton, MenuItem, Typography } from '@material-ui/
 import React from 'react'
 import DeleteIcon from '@material-ui/icons/Delete';
 import FromSelect from '../FromSelect/FromSelect';
-import {addToCart} from '../../Redux/cart/CartAction'
+import {addToCart, removeItemFromCart} from '../../Redux/cart/CartAction'
 
 import { useDispatch } from 'react-redux'
 
 import './styleCartRow.css'
 
 
-export default function CartRow({item: {image,countInStock, qty, product, name, price} }) {
+export default function CartRow({ item }) {
 
+   
     const dispatch = useDispatch()
+    
+    const {image,countInStock, qty, product, name, price} = item;
+
+    const removeFromCartHandler = (id) => {
+        dispatch(removeItemFromCart(id))
+      }
+
     return (
         <Container>
             <div className='cartRow'>
@@ -42,8 +50,11 @@ export default function CartRow({item: {image,countInStock, qty, product, name, 
                     </FromSelect>
                 </div>
                 <div  className='cartRow__delete'>
-                    <IconButton>
-                        <DeleteIcon fontSize='large' style={{color:'#D32F2F'}} />
+                    <IconButton   onClick={() => removeFromCartHandler(product)}>
+                        <DeleteIcon 
+                        fontSize='large' 
+                        style={{color:'#D32F2F'}}
+                        />
                     </IconButton>
 
                 </div>
