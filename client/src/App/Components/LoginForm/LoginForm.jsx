@@ -9,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import { Card } from '@material-ui/core';
 
 import './styleLoginForm.css'
+import FromText from '../Forms/FromText';
 
 
 const validationSchema = Yup.object({
@@ -19,51 +20,22 @@ const validationSchema = Yup.object({
 export default function LoginForm() {
     return (
         <Card className="card_login_form">
+            <h1>login to our e-commerce platform</h1>
             <div className='login_form_container'>
+                
                 <Formik
                     initialValues={{email:'', password: ''}}
                     validationSchema={validationSchema}
                     onSubmit={(values) => console.log(values)}
                 >
-                    {({
-                         values,
-                         touched,
-                         errors,
-                         dirty,
-                         isSubmitting,
-                         handleChange,
-                         handleBlur,
-                         handleSubmit,
-                    })=>(
+                    {({ dirty,isSubmitting, isValid })=>(
 
                         <Form>
-                            <TextField 
-                                className='input'
-                                value={values.email}
-                                onChange={handleChange('email')}
-                                onBlur={handleBlur('email')}
-                                fullWidth
-                                label="email" 
-                                variant="outlined"
-                                />
-                                {errors.email && touched.email && (
-                                   <label className='label'> {errors.email}</label>
-                                )}
-                                <TextField 
-                                className='input'
-                                value={values.password}
-                                onChange={handleChange('password')}
-                                onBlur={handleBlur('password')}
-                                fullWidth
-                                label="password" 
-                                variant="outlined"
-                                />
-                                {errors.password && touched.password && (
-                                   <label className='label'> {errors.password}</label>
-                                )}
+                            <FromText  label="email"   name='email' />
+                            <FromText  label="password"   name='password' />
                             <div className='btn'>
                                 <CustomButton 
-                                    disabled={!dirty || isSubmitting}
+                                    disabled={!dirty || !isValid || isSubmitting}
                                     inverted 
                                     type='submit' 
                                     title='Login' />
