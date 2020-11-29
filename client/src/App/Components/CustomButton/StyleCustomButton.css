@@ -1,18 +1,34 @@
 .customBtn{
+    background-color: #000;   
+}
+    
+.customBtn:hover{
+    background-color: white;
+    color: #000;
+    border: 2px solid #000;
+}
+.customB{
     outline-width: 0;
     height: 60px;
     width: 250px;
     font-size: 20px;
     padding: 10px;
-    background-color: #000;
-    color: white;
-    border: 2px solid white;
-    border-radius: 2px;
     transition: all 0.4s ease-in-out;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
 }
-.customBtn:hover{
-    background-color: white;
 
-    border: 2px solid #000;
-    color: #000;
+.customBtn_plus{
+    background-color: #448AFF; 
+    margin-right: 30px;
+
+}
+
+.customBtn_plus:hover{
+    background-color: white;
+    color: #448AFF;
+    border: 2px solid #448AFF;
 }

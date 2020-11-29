@@ -2,9 +2,9 @@ import React from 'react'
 
 import './StyleCustomButton.css'
 
-export default function CustomButton({title, ...otherProps}) {
+export default function CustomButton({title, inverted, ...otherProps}) {
     return (
-        <button className='customBtn' {...otherProps}>
+        <button className={inverted? 'customB customBtn_plus' :'customB customBtn'} {...otherProps}>
             {title}
         </button>
     )

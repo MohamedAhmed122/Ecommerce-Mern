@@ -1,14 +1,23 @@
 import React, { useEffect } from 'react'
-import { useParams, useLocation} from 'react-router-dom';
+import { useParams, useLocation, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector } from 'react-redux'
 
-import {addToCart} from '../../Redux/cart/CartAction'
+import CustomButton from '../../Components/CustomButton/CustomButton';
 import CartRow from '../../Components/CartRow/CartRow';
+import Alert from '../../Common/Alert'
+
+import './StyleCartPage.css'
+
+import {addToCart} from '../../Redux/cart/CartAction'
+import { calculateTotal } from '../../utilities/utility';
+
+
 
 export default function CartPage() {
    const dispatch = useDispatch()
    const {carts } = useSelector(state => state.cart);
    const location = useLocation();
+   const history = useHistory()
    const { id } = useParams();
    const qty = location.search ? Number(location.search.split('=')[1]) :1;
 
@@ -18,22 +27,30 @@ export default function CartPage() {
            dispatch(addToCart(id , qty))
        }
    },[dispatch, id, qty])
-   console.log(id);
-   console.log(carts);
+
+   const handleGoBack = () =>  history.goBack()
+   
+
+   const handleCheckout = () => history.push('/login?redirect=shipping')
+   
 
     return (
-        <div style={{marginTop: 90, display: 'flex'}}>
-            <div style={{width: '70%'}}>
-                { 
-                    carts?.map(item =>(
-                        <CartRow key={item.name} item={item}>
-                            
-                        </CartRow>
-                    ))
-                }
-                
+        <div className='cartPage'>
+            {carts.length < 0?  <Alert severity="info">Your Cart is Empty</Alert> : '' }
+            { 
+                carts?.map(item =>(
+                    <CartRow qty={qty} key={item.name} item={item}>
+                        
+                    </CartRow>
+                ))
+            }
+            <div className='cartPage_total'>
+                <p>Total {calculateTotal(carts)} $</p>
             </div>
-            <div style={{flex: 0.25}}></div>
+            <div className='btn_group'>
+                <CustomButton inverted onClick={handleGoBack} title='GO Back' />
+                <CustomButton title='To Checkout' onClick={handleCheckout}/>
+            </div>
         </div>
     )
 }
