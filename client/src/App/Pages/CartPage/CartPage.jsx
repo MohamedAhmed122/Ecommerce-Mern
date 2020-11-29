@@ -36,7 +36,7 @@ export default function CartPage() {
     return (
         <div className='cartPage'>
             {carts.length <= 0 &&  
-                <div className='cartPage_alert'> 
+                <div className=''> 
                     <Alert severity="info">Your Cart is Empty</Alert> 
                 </div>
             }
