@@ -1,0 +1,15 @@
+.nav_menu .nav_menu_{
+    width:200px;
+    background-color: #000;
+    color: white;
+    padding: 20px;
+    margin: 20px;
+}
+
+.nav_menu .nav_menu_ .nav_menu_item{
+    width:200px;
+    background-color: #000;
+    color: white;
+    padding: 20px;
+    margin: 20px;
+ }

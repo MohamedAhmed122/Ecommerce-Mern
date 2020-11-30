@@ -5,8 +5,6 @@ import * as Yup from 'yup'
 
 import CustomButton from '../CustomButton/CustomButton'
 import FromText from '../Forms/FromText';
-import Loading from '../../Common/Loading'
-import Alert from '../../Common/Alert'
 
 import { Card } from '@material-ui/core';
 
@@ -27,8 +25,7 @@ export default function LoginForm() {
     const history = useHistory()
     const location = useLocation()
     const dispatch = useDispatch()
-    const {isAuthenticated, loading, error} = 
-        useSelector(state => state.user)
+    const {isAuthenticated,  error} =  useSelector(state => state.user)
 
     const redirect = location.search ? location.search.split('=')[1] :'/'
 
@@ -57,7 +54,7 @@ export default function LoginForm() {
                         <Form>
                             <FromText  label="email"   name='email' />
                             <FromText type='password'  label="password"   name='password' />
-                            {/* {error && <Alert  severity="error">{error}</Alert>} */}
+                            {error && <label className='label'>{error}</label>}
                             <div className='btn'>
                                 <CustomButton 
                                     disabled={!dirty || !isValid || isSubmitting}
