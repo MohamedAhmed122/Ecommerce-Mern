@@ -5,9 +5,11 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import PersonIcon from '@material-ui/icons/Person';
 import './StyleNavbar.css'
+import FaceIcon from '@material-ui/icons/Face';
 import { useSelector } from 'react-redux';
-import { Menu, MenuItem } from '@material-ui/core';
+import { Chip, Menu, MenuItem } from '@material-ui/core';
 import NavMenu from './NavMenu/NavMenu';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 export default function Navbar() {
     const {currentUser, isAuthenticated} = useSelector(state =>state.user)
@@ -40,10 +42,14 @@ export default function Navbar() {
                      <ShoppingBasketIcon  />
                 </div>
                 <div className='link' onClick={handleClick}>
-                  { isAuthenticated? currentUser.name : <Link to='/login'>Login</Link>}
-                   
-                    <PersonIcon />
+                  { isAuthenticated?
+                  <Chip deleteIcon={<ArrowDropDownIcon />} label={currentUser.name}  icon={<FaceIcon />} />
+                   :<>
+                        <Link to='/login'>Login</Link>
+                        <PersonIcon />
+                    </>}
                    <NavMenu 
+                   isAuthenticated={isAuthenticated}
                    setAnchorEl={setAnchorEl} 
                    setOpenMenu={setOpenMenu}  
                    openMenu={openMenu} 

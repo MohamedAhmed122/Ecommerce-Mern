@@ -1,4 +1,9 @@
-import { USER_LOGIN_ERROR, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS } from "./userTypes";
+import { 
+    USER_LOGIN_ERROR, 
+    USER_LOGIN_REQUEST, 
+    USER_LOGIN_SUCCESS,
+    USER_LOGOUT 
+} from "./userTypes";
 
 const initialState ={
     currentUser: null,
@@ -25,6 +30,12 @@ const userReducer = (state =initialState, { type, payload } ) =>{
             return{
                 ...state,
                 error: payload,
+            }
+        case USER_LOGOUT:
+            return{
+                isAuthenticated: false,
+                currentUser: null,
+                loading: false
             }
         default: return state;
     }

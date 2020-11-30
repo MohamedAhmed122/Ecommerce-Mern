@@ -1,5 +1,10 @@
 import axios from 'axios'
-import { USER_LOGIN_ERROR, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS } from "./userTypes";
+import { 
+    USER_LOGIN_ERROR, 
+    USER_LOGIN_REQUEST, 
+    USER_LOGIN_SUCCESS,
+    USER_LOGOUT 
+} from "./userTypes";
 
 
 export const userLogin = (email, password) => async(dispatch) =>{
@@ -25,4 +30,9 @@ export const userLogin = (email, password) => async(dispatch) =>{
              error.response.data.message ? error.response.data.message : error.message
         })
     }
+}
+
+export const userLogout = () =>(dispatch) =>{
+
+    dispatch({type: USER_LOGOUT})
 }
