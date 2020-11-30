@@ -1,4 +1,11 @@
-import { USER_PROFILE_ERROR, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS } from "./profileTypes";
+import { 
+    USER_PROFILE_ERROR, 
+    USER_PROFILE_REQUEST, 
+    USER_PROFILE_SUCCESS,
+    USER_UPDATE_PROFILE_ERROR,
+    USER_UPDATE_PROFILE_REQUEST, 
+    USER_UPDATE_PROFILE_SUCCESS
+} from "./profileTypes";
 
 
 
@@ -29,6 +36,23 @@ const profileReducer = (state =initialState, {type, payload}) =>{
                 error: payload,
                 loading: false,
             }
+            case USER_UPDATE_PROFILE_REQUEST:
+                return{
+                    ...state,
+                    loading: true
+                }
+            case USER_UPDATE_PROFILE_SUCCESS:
+                return{
+                    ...state,
+                    loading: false,
+                    userProfile: payload
+                }
+            case USER_UPDATE_PROFILE_ERROR:
+                return{
+                    ...state,
+                    error: payload,
+                    loading: false,
+                }
         default: return state;
     }
 }

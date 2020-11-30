@@ -16,9 +16,9 @@ export default function ProductCard({product}) {
             <Card className='card' onClick={() =>history.push(`/product/${_id}`)}> 
                 <CardActionArea>
                     <CardMedia 
-                    style={{height: 250}}
-                    image={image}
-                    title={name}/>
+                        style={{height: 250}}
+                        image={image}
+                        title={name}/>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
                             {name}

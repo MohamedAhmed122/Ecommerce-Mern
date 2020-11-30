@@ -8,7 +8,7 @@ import FromText from '../Forms/FromText';
 
 import { Card } from '@material-ui/core';
 
-import { getUserProfile } from '../../Redux/profile/profileAction'
+import { getUserProfile, updateUserProfile } from '../../Redux/profile/profileAction'
 import {useDispatch, useSelector } from 'react-redux'
 import {useHistory } from 'react-router-dom' 
 
@@ -16,9 +16,8 @@ import './StyleProfileFrom.css'
 
 
 const validationSchema = Yup.object({
-    name: Yup.string().required(),
-    email: Yup.string().required().email(),
-    password: Yup.string().required().min(4),
+    email: Yup.string().email(),
+    password: Yup.string().min(4),
     confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
   });
@@ -41,6 +40,9 @@ export default function LoginForm() {
     },[isAuthenticated,history, dispatch, currentUser])
 
     // if(loading) return <Loading />
+    const handleSubmit = (userInfo) =>{
+        dispatch(updateUserProfile(userInfo))
+    }
     return (
         <Card  className='profile_card'>
             <h1>Update your profile</h1>
@@ -54,10 +56,7 @@ export default function LoginForm() {
                         confirmPassword: ''
                     }}
                     validationSchema={validationSchema}
-                    onSubmit={(values, ) =>{
-                    //    dispatch(userLogin(values.email, values.password))
-                    console.log(values)
-                    }}
+                    onSubmit={handleSubmit}
                 >
                     {({ isSubmitting })=>(
 
