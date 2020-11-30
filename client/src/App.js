@@ -7,6 +7,7 @@ import CartPage from './App/Pages/CartPage/CartPage';
 import HomePage from './App/Pages/HomePage/HomePage';
 import LoginScreen from './App/Pages/LoginScreen/LoginScreen';
 import ProductDetailedPage from './App/Pages/ProductDetailedPage/ProductDetailedPage';
+import RegisterPage from './App/Pages/ RegisterPage/RegisterPage'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route  path='/product/:id' component={ProductDetailedPage} />
             <Route  path='/cart/:id?' component={CartPage} />
             <Route path='/login' component={LoginScreen} />
+            <Route path='/register' component={RegisterPage} />
           </Switch>
         <Footer />
 

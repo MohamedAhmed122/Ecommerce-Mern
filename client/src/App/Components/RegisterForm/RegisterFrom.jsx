@@ -8,19 +8,22 @@ import FromText from '../Forms/FromText';
 
 import { Card } from '@material-ui/core';
 
-import { userLogin } from '../../Redux/user/UserAction'
+import { userRegister } from '../../Redux/user/UserAction'
 import {useDispatch, useSelector } from 'react-redux'
 import {useLocation, useHistory } from 'react-router-dom' 
 
-import './styleLoginForm.css'
+
 
 
 const validationSchema = Yup.object({
+    name: Yup.string().required(),
     email: Yup.string().required().email(),
-    password: Yup.string().required().min(4)
+    password: Yup.string().required().min(4),
+    confirmPassword: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
   });
 
-export default function LoginForm() {
+export default function RegisterForm() {
 
     const history = useHistory()
     const location = useLocation()
@@ -37,29 +40,31 @@ export default function LoginForm() {
 
     // if(loading) return <Loading />
     return (
-        <Card className="card_login_form">
-            <h1>login to our e-commerce platform</h1>
+        <Card className="card_register">
+            <h1>register to our e-commerce platform</h1>
             <div className='login_form_container'>
                 
                 <Formik
-                    initialValues={{email:'', password: ''}}
+                    initialValues={{name: '',email:'', password: '', confirmPassword:''}}
                     validationSchema={validationSchema}
                     onSubmit={(values, {resetForm}) =>{
-                       dispatch(userLogin(values.email, values.password))
+                       dispatch(userRegister( values.name, values.email, values.password))
                     }}
                 >
                     {({ dirty,isSubmitting, isValid })=>(
 
                         <Form>
+                            <FromText  label="name"   name='name' />
                             <FromText  label="email"   name='email' />
                             <FromText type='password'  label="password"   name='password' />
+                            <FromText type='password'  label="confirm password"   name='confirmPassword' />
                             {error && <label className='label'>{error}</label>}
                             <div className='btn'>
                                 <CustomButton 
                                     disabled={!dirty || !isValid || isSubmitting}
                                     inverted 
                                     type='submit' 
-                                    title='Login' />
+                                    title='Register' />
                             </div>
                         </Form>
                     )}
