@@ -1,0 +1,6 @@
+.profile_page{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
