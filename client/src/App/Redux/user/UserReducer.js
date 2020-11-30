@@ -2,6 +2,9 @@ import {
     USER_LOGIN_ERROR, 
     USER_LOGIN_REQUEST, 
     USER_LOGIN_SUCCESS,
+    USER_REGISTER_ERROR, 
+    USER_REGISTER_REQUEST, 
+    USER_REGISTER_SUCCESS,
     USER_LOGOUT 
 } from "./userTypes";
 
@@ -37,6 +40,24 @@ const userReducer = (state =initialState, { type, payload } ) =>{
                 currentUser: null,
                 loading: false
             }
+            case USER_REGISTER_REQUEST:
+            return{
+                ...state,
+                loading: true
+            }
+        case USER_REGISTER_SUCCESS:
+            return{
+                ...state,
+                loading: false,
+                isAuthenticated: true,
+                currentUser: payload,
+            }
+        case USER_REGISTER_ERROR:
+            return{
+                ...state,
+                error: payload,
+            }
+        
         default: return state;
     }
 }

@@ -12,7 +12,7 @@ import userReducer from "./user/UserReducer";
 const persistConfig = {
    key: "cart",
    storage,
-   whiteList: ["cart"],
+   whiteList: ["cart","user"],
  };
  
 const rootReducer = combineReducers({
