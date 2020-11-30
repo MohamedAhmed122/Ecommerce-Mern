@@ -18,7 +18,7 @@ export default function ProductCard({product}) {
                     <CardMedia 
                     style={{height: 250}}
                     image={image}
-                    title='shit'/>
+                    title={name}/>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
                             {name}

@@ -12,7 +12,9 @@ import NavMenu from './NavMenu/NavMenu';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 export default function Navbar() {
-    const {currentUser, isAuthenticated} = useSelector(state =>state.user)
+
+    const {isAuthenticated, currentUser} = useSelector(state =>state.user)
+
     const [anchorEl, setAnchorEl] = useState(null);
     const [openMenu, setOpenMenu] = useState(false)
 
@@ -24,8 +26,6 @@ export default function Navbar() {
         }
       };
     
-  
-   
     return (
         <div className="navbar">
             <div className='logo'>
@@ -43,7 +43,7 @@ export default function Navbar() {
                 </div>
                 <div className='link' onClick={handleClick}>
                   { isAuthenticated?
-                  <Chip deleteIcon={<ArrowDropDownIcon />} label={currentUser.name}  icon={<FaceIcon />} />
+                  <Chip deleteIcon={<ArrowDropDownIcon />} label={currentUser?.name}  icon={<FaceIcon />} />
                    :<>
                         <Link to='/login'>Login</Link>
                         <PersonIcon />
@@ -54,7 +54,7 @@ export default function Navbar() {
                    setOpenMenu={setOpenMenu}  
                    openMenu={openMenu} 
                    anchorEl={anchorEl} 
-                   currentUser={currentUser}/>
+                 />
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ import FromText from '../Forms/FromText';
 
 import { Card } from '@material-ui/core';
 
-import { userLogin } from '../../Redux/user/UserAction'
+import { getUserProfile } from '../../Redux/profile/profileAction'
 import {useDispatch, useSelector } from 'react-redux'
 import {useHistory } from 'react-router-dom' 
 
@@ -30,14 +30,15 @@ export default function LoginForm() {
  
     const dispatch = useDispatch()
     const {isAuthenticated, currentUser,  error} =  useSelector(state => state.user)
-
-
-
+    const {userProfile } = useSelector(state => state.profile)
+    
     useEffect(()=>{
         if(!isAuthenticated){
             history.push('/')
+        }else{
+            dispatch(getUserProfile('profile'))
         }
-    },[isAuthenticated,history])
+    },[isAuthenticated,history, dispatch, currentUser])
 
     // if(loading) return <Loading />
     return (
@@ -47,14 +48,15 @@ export default function LoginForm() {
                 
                 <Formik
                     initialValues={{
-                        name: currentUser.name || '',
-                        email: currentUser.email ||'',
+                        name: userProfile?.name || '',
+                        email: userProfile?.email ||'',
                         password: '', 
                         confirmPassword: ''
                     }}
                     validationSchema={validationSchema}
                     onSubmit={(values, ) =>{
-                       dispatch(userLogin(values.email, values.password))
+                    //    dispatch(userLogin(values.email, values.password))
+                    console.log(values)
                     }}
                 >
                     {({ isSubmitting })=>(
