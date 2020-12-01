@@ -48,10 +48,10 @@ export default function LoginForm() {
                     {({ dirty,isSubmitting, isValid })=>(
 
                         <Form>
-                            <FromText  label="country"   name='country' />
-                            <FromText  label="city"   name='city' />
-                            <FromText  label="address"   name='address' />
-                            <FromText  label="zip code"   name='zipCode' />
+                            <FromText  label="Country"   name='country' />
+                            <FromText  label="City"   name='city' />
+                            <FromText  label="Address"   name='address' />
+                            <FromText  label="Zip code"   name='zipCode' />
                             {error && <label className='label'>{error}</label>}
                             <div className='btn'>
                                 <CustomButton 
