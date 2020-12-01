@@ -38,7 +38,6 @@ export default function RegisterForm() {
         }
     },[isAuthenticated,redirect,history])
 
-    // if(loading) return <Loading />
     return (
         <Card className="card_register">
             <h1>register to our e-commerce platform</h1>
@@ -47,8 +46,9 @@ export default function RegisterForm() {
                 <Formik
                     initialValues={{name: '',email:'', password: '', confirmPassword:''}}
                     validationSchema={validationSchema}
-                    onSubmit={(values, {resetForm}) =>{
+                    onSubmit={(values) =>{
                        dispatch(userRegister( values.name, values.email, values.password))
+                       history.push(redirect)
                     }}
                 >
                     {({ dirty,isSubmitting, isValid })=>(
@@ -64,7 +64,8 @@ export default function RegisterForm() {
                                     disabled={!dirty || !isValid || isSubmitting}
                                     inverted 
                                     type='submit' 
-                                    title='Register' />
+                                    title='Register' 
+                                    />
                             </div>
                         </Form>
                     )}

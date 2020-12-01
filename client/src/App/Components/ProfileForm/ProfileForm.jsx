@@ -56,7 +56,15 @@ export default function LoginForm() {
                         confirmPassword: ''
                     }}
                     validationSchema={validationSchema}
-                    onSubmit={handleSubmit}
+                    onSubmit={ (values)=>{
+                        dispatch(updateUserProfile({
+                            _id: currentUser._id,
+                            name: values.name,
+                            email: values.email,
+                            password: values.password
+                        }))
+                    }
+                    }
                 >
                     {({ isSubmitting })=>(
 

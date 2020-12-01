@@ -36,7 +36,7 @@ export const getUserProfile = (id ='profile', ) => async(dispatch, getState) =>{
 
 
 
-export const updateUserProfile = (id ='profile', userInfo ) => async(dispatch, getState) =>{
+export const updateUserProfile = ({_id, name, email, password}  ) => async(dispatch, getState) =>{
     try {
          dispatch({type: USER_UPDATE_PROFILE_REQUEST})
  
@@ -48,7 +48,7 @@ export const updateUserProfile = (id ='profile', userInfo ) => async(dispatch, g
                  'Content-Type': 'application/json',
              }
          }
-         const { data } = await axios.put(`api/users/${id}`,userInfo, config )
+         const { data } = await axios.put(`api/users/profile`,{_id, name, email, password}, config )
          dispatch({type: USER_UPDATE_PROFILE_SUCCESS, payload: data})
          console.log(data)
  

@@ -25,7 +25,7 @@ export default function HomePage() {
     return (
       <div>
         <div className='home_page'  >
-          {error && <Alert  severity="error">{error}</Alert>}
+          {/* {error && <Alert  severity="error">{error}</Alert>} */}
           {
               products.map(product =>(
                   <ProductCard key={product.name} product={product}  />

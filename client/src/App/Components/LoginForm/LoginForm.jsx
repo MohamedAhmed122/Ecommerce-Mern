@@ -44,8 +44,9 @@ export default function LoginForm() {
                 <Formik
                     initialValues={{email:'', password: ''}}
                     validationSchema={validationSchema}
-                    onSubmit={(values, {resetForm}) =>{
+                    onSubmit={(values) =>{
                        dispatch(userLogin(values.email, values.password))
+                       history.push(redirect)
                     }}
                 >
                     {({ dirty,isSubmitting, isValid })=>(
@@ -58,8 +59,9 @@ export default function LoginForm() {
                                 <CustomButton 
                                     disabled={!dirty || !isValid || isSubmitting}
                                     inverted 
-                                    type='submit' 
-                                    title='Login' />
+                                    type='submit'
+                                    title='Login' 
+                                    />
                             </div>
                         </Form>
                     )}
