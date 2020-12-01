@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import './styleCartRow.css'
 
 
-export default function CartRow({ item }) {
+export default function CartRow({ item, inverted }) {
 
    
     const dispatch = useDispatch()

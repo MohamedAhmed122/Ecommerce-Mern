@@ -1,0 +1,30 @@
+.payment{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+.payment__card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    width: 50vw;
+}
+.payment__card h3{
+    margin: 20px;
+}
+
+.payment_select{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+}
+.payment .btn{
+  margin-bottom: 20px;
+}
