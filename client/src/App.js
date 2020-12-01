@@ -9,6 +9,7 @@ import LoginScreen from './App/Pages/LoginScreen/LoginScreen';
 import ProductDetailedPage from './App/Pages/ProductDetailedPage/ProductDetailedPage';
 import RegisterPage from './App/Pages/ RegisterPage/RegisterPage'
 import ProfilePage from './App/Pages/ProfilePage/ProfilePage';
+import ShippingPage from './App/Pages/ShippingPage/ShippingPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='/login' component={LoginScreen} />
             <Route path='/register' component={RegisterPage} />
             <Route path='/profile' component={ProfilePage} />
+            <Route path='/shipping' component={ShippingPage} />
           </Switch>
         <Footer />
 

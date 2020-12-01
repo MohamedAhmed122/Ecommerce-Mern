@@ -1,8 +1,9 @@
 // import { addItemToCart } from './utils.js'
-import { ADD_CART_ITEM, REMOVE_CART_ITEM } from "./CartType";
+import { ADD_CART_ITEM, REMOVE_CART_ITEM, SAVE_SHIPPING_ADDRESS } from "./CartType";
 
 const initialState={
-    carts:[]
+    carts:[],
+    shippingAddress: {}
 }
 
 
@@ -30,6 +31,11 @@ const cartReducer = (state = initialState, {type,payload})=>{
           return {
             ...state,
             carts: state.carts.filter((x) => x.product !== payload),
+          }
+        case SAVE_SHIPPING_ADDRESS:
+          return{
+            ...state,
+            shippingAddress: payload
           }
         default: return state
     }
