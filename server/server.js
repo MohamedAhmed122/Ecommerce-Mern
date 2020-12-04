@@ -1,7 +1,10 @@
 import express from'express';
 import dotenv from'dotenv'
+
 import productRouter from './Routes/productRoutes.js'
 import userRouter from './Routes/userRouter.js'
+import ordersRouter from './Routes/OrderRoute.js'
+
 import colors from 'colors'
 import connectDB from './config/db.js';
 
@@ -20,6 +23,7 @@ app.get('/',(req, res)=>{
 
 app.use('/api/products', productRouter)
 app.use('/api/users', userRouter)
+app.use('/api/orders', ordersRouter)
 
 const PORT = process.env.PORT|| 5000;
 
