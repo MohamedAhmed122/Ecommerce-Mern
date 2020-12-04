@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import CheckoutRow from './CheckoutRow/CheckoutRow'
+import CheckoutTable from './CheckoutTable/CheckoutTable'
 
 import './styleCheckout.css'
 
@@ -30,7 +31,7 @@ export default function Checkout() {
             </div>
                
              <div className='checkout_right'>
-
+                <CheckoutTable />
              </div>
         </div>
     )
