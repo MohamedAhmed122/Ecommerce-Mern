@@ -1,0 +1,23 @@
+.table{
+    width:400px;
+    margin: 20px 0px;
+}
+.table .table__item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 20px;
+
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.table .table__item p{
+    display: block;
+}
+.table__bnt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 20px;
+}

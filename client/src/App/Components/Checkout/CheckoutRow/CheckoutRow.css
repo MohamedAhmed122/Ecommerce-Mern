@@ -1,0 +1,24 @@
+.checkout_row{
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.checkout_row img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: contain;
+    margin-right: 4rem;
+    margin-left: 2rem;
+}
+.row_title{
+    margin-right: 4rem;
+}
+.checkout_row p{
+    text-align: center;
+}
+.checkout_row .line{
+    border: 1px solid lightgray;
+
+}

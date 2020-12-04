@@ -1,0 +1,21 @@
+.checkout{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+.checkout_left .title{
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.checkout_left p{
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
+.checkout .checkout_left{
+    flex: 0.7;
+    margin: 2rem;
+}
+.checkout .checkout_right{
+    flex: 0.3;
+}

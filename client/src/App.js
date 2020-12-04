@@ -12,6 +12,7 @@ import ProfilePage from './App/Pages/ProfilePage/ProfilePage';
 import ShippingPage from './App/Pages/ShippingPage/ShippingPage';
 import Stepper from './App/Components/Stepper/Stepper'
 import PaymentPage from './App/Pages/PaymentPage/PaymentPage';
+import PlaceOrderPage from './App/Pages/PlaceOrderPage/PlaceOrderPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path='/profile' component={ProfilePage} />
             <Route path='/shipping' component={ShippingPage} />
             <Route path='/payment' component={PaymentPage} />
+            <Route path='/placeOrder' component={PlaceOrderPage} />
           </Switch>
         <Footer />
 
