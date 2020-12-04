@@ -7,7 +7,7 @@ import {
 import axios from 'axios'
 
 
-export const updateUserProfile = (order) => async(dispatch, getState) =>{
+export const createOrder = (order) => async(dispatch, getState) =>{
     try {
          dispatch({type: ORDER_CREATE_REQUEST})
  
@@ -19,7 +19,7 @@ export const updateUserProfile = (order) => async(dispatch, getState) =>{
                  'Content-Type': 'application/json',
              }
          }
-         const { data } = await axios.post(`api/orders`,order, config )
+         const { data } = await axios.post(`api/orders`, order , config )
          
          dispatch({type: ORDER_CREATE_SUCCESS, payload: data})
          console.log(data)

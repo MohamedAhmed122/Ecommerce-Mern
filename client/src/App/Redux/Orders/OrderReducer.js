@@ -5,9 +5,10 @@ import {
 } from "./OrderTypes"
 
 const initialState ={
+    orderList: {},
     loading:false,
     error: null,
-    order:{}
+    success: false
 }
 
 const orderReducer = (state =initialState, {type, payload} ) =>{
@@ -21,7 +22,8 @@ const orderReducer = (state =initialState, {type, payload} ) =>{
         case ORDER_CREATE_SUCCESS:
             return{
                 loading: false,
-                order: payload,
+                orderList: payload,
+                success: true,
                 ...state,
             }
         case ORDER_CREATE_ERROR:

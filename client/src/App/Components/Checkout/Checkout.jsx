@@ -23,13 +23,11 @@ export default function Checkout() {
                
             <div className='checkout_left'>
                 <Container>
-                    
                     <div>
                         { carts.map(item => <CheckoutRow key={item.product} item={item} />)}
                     </div>
                 </Container>
             </div>
-               
              <div className='checkout_right'>
                 <CheckoutTable />
              </div>

@@ -1,15 +1,20 @@
-import React  from 'react'
+import React, { useEffect }  from 'react'
 import { Card } from '@material-ui/core'
 import CustomButton from '../../CustomButton/CustomButton'
 
 import './CheckoutTable.css'
-import { useSelector } from 'react-redux'
-import { calculateTotal } from '../../../utilities/utility'
 
+import { useDispatch, useSelector } from 'react-redux'
+import { calculateTotal } from '../../../utilities/utility'
+import { createOrder } from '../../../Redux/Orders/OrderAction'
+import { useHistory } from 'react-router-dom'
 export default function CheckoutTable() {
 
     const {shippingAddress, carts } = useSelector(state => state.cart)
-    const cart = useSelector((state) => state.cart)
+    const cart = useSelector((state) => state.cart)  
+    const { orderList, success } = useSelector(state => state.orders)
+    const dispatch = useDispatch()
+    const history = useHistory()
     const addDecimals = (num) => {
         return (Math.round(num * 100) / 100).toFixed(2)
       }
@@ -23,6 +28,26 @@ export default function CheckoutTable() {
     Number(cart.taxPrice)
     ).toFixed(2)
 
+    useEffect(()=>{
+        if(!success){
+            history.push(`/orders/${orderList._id}`)
+        }
+        // eslint-disable-next-line
+    },[history, success, ])
+
+console.log(carts);
+    const handleSubmit = () =>{
+        dispatch(createOrder({
+            productItems: carts,
+            shippingAddress:shippingAddress,
+            paymentMethod: 'paypall',
+            itemsPrice:cart.itemsPrice ,
+            taxPrice: cart.taxPrice,
+            shippingPrice: cart.shippingPrice,
+            totalPrice: cart.totalPrice 
+        }))
+    }
+    
     return (
         <Card className='table'> 
             <div className='table__item'>
@@ -50,7 +75,7 @@ export default function CheckoutTable() {
                 <p>{cart.totalPrice}</p>
             </div>
             <div className='table__bnt'>
-               <CustomButton title='Place Order'  />
+               <CustomButton title='Place Order'  onClick={handleSubmit} />
             </div>
         </Card>
     )

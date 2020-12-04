@@ -24,7 +24,7 @@ export const CreateOrder = asyncHandler (async (req, res) =>{
    }else{
         const order = new Order({
             user: req.user._id,
-            orderItems,
+            productItems,
             shippingAddress,
             paymentMethod,
             itemsPrice,

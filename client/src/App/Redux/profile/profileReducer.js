@@ -13,6 +13,7 @@ import {
 const initialState = {
     userProfile: null,
     loading: false,
+    success: false,
     error: null
 }
 
@@ -28,13 +29,15 @@ const profileReducer = (state =initialState, {type, payload}) =>{
             return{
                 ...state,
                 loading: false,
-                userProfile: payload
+                userProfile: payload,
+                success: true,
             }
         case USER_PROFILE_ERROR:
             return{
                 ...state,
                 error: payload,
                 loading: false,
+                success: false,
             }
             case USER_UPDATE_PROFILE_REQUEST:
                 return{

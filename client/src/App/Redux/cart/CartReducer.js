@@ -3,7 +3,7 @@ import { ADD_CART_ITEM, REMOVE_CART_ITEM, SAVE_SHIPPING_ADDRESS } from "./CartTy
 
 const initialState={
     carts:[],
-    shippingAddress: {}
+    shippingAddress: {},
 }
 
 
