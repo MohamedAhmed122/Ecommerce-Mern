@@ -1,7 +1,7 @@
 import { Menu, MenuItem } from '@material-ui/core'
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 import { userLogout } from '../../../Redux/user/UserAction';
 
 export default function NavMenu({anchorEl,setAnchorEl,setOpenMenu, openMenu}) {

@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,18 +24,18 @@ function getSteps() {
   return ['Shipping Information', 'Select Payment', 'Place Order'];
 }
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return 'Shipping Information';
-    case 1:
-      return ' Payment';
-    case 2:
-      return 'Place Order';
-    default:
-      return 'Unknown step';
-  }
-}
+// function getStepContent(step) {
+//   switch (step) {
+//     case 0:
+//       return 'Shipping Information';
+//     case 1:
+//       return ' Payment';
+//     case 2:
+//       return 'Place Order';
+//     default:
+//       return 'Unknown step';
+//   }
+// }
 
 export default function HorizontalLinearStepper({activeStep, setActiveStep}) {
   const classes = useStyles();

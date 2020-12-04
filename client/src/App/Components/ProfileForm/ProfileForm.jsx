@@ -39,10 +39,7 @@ export default function LoginForm() {
         }
     },[isAuthenticated,history, dispatch, currentUser])
 
-    // if(loading) return <Loading />
-    const handleSubmit = (userInfo) =>{
-        dispatch(updateUserProfile(userInfo))
-    }
+  
     return (
         <Card  className='profile_card'>
             <h1>Update your profile</h1>

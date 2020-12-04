@@ -6,13 +6,12 @@ import ProductCard from '../../Components/ProductCard/ProductCard'
 import {  useDispatch, useSelector } from 'react-redux'
 
 import './style.css'
-import Alert from '../../Common/Alert'
 import Loading from '../../Common/Loading'
 
 
 export default function HomePage() {
 
-  const { products, loading, error } = useSelector(state => state.productList)
+  const { products, loading } = useSelector(state => state.productList)
  
   const dispatch = useDispatch();
     
