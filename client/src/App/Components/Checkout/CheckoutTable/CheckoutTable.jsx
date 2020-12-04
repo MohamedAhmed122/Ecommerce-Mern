@@ -38,7 +38,7 @@ export default function CheckoutTable() {
 console.log(carts);
     const handleSubmit = () =>{
         dispatch(createOrder({
-            productItems: carts,
+            orderItems: carts,
             shippingAddress:shippingAddress,
             paymentMethod: 'paypall',
             itemsPrice:cart.itemsPrice ,
