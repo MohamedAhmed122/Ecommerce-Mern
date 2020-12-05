@@ -42,4 +42,8 @@
     .cartRow__price p{
         margin-bottom: 20px;
     }
+    .cartRow__title,.cartRow__price, .cartRow__title {
+        width: 90%;
+    }
+
 }
