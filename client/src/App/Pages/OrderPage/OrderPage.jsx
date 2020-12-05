@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Loading from '../../Common/Loading'
 import Orders from '../../Components/Orders/Orders'
-import { getOrderDetails } from '../../Redux/OrdersRedux/OrderDetial/OrderDetailAction'
+import { getOrderDetails } from "../../Redux/Order/OrderDetial/OrderDetailAction"
 
 export default function OrderPage() {
 

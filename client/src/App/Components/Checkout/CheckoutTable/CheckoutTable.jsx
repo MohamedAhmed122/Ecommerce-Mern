@@ -6,7 +6,7 @@ import './CheckoutTable.css'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { calculateTotal } from '../../../utilities/utility'
-import { createOrder } from "../../../Redux/OrdersRedux/Orders/OrderAction"
+import { createOrder } from "../../../Redux/Order/Orders/OrderAction"
 import { useHistory } from 'react-router-dom'
 export default function CheckoutTable() {
 

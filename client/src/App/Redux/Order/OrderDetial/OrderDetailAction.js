@@ -2,7 +2,7 @@ import {
     ORDER_DETAIL_REQUEST, 
     ORDER_DETAIL_SUCCESS, 
     ORDER_DETAIL_ERROR 
-} from "./OrderTypes"
+} from "./OrderDetailTypes"
 
 import axios from 'axios'
 

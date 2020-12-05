@@ -9,8 +9,8 @@ import ProductDetailReducer from "./products/ProductListDetails/ProductDetailsRe
 import CartReducer from './cart/CartReducer'
 import profileReducer from './profile/profileReducer'
 import userReducer from "./user/UserReducer";
-import orderReducer from "./OrdersRedux/Orders/OrderReducer"
-import orderDetailsReducer from "./OrdersRedux/OrderDetial/OrderReducer";
+import orderReducer from "./Order/Orders/OrderReducer"
+import orderDetailsReducer from "./Order/OrderDetial/OrderDetailReducer"
 
 const persistConfig = {
    key: "cart",
