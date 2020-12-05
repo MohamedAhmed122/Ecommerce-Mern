@@ -11,6 +11,7 @@ import profileReducer from './profile/profileReducer'
 import userReducer from "./user/UserReducer";
 import orderReducer from "./Order/Orders/OrderReducer"
 import orderDetailsReducer from "./Order/OrderDetial/OrderDetailReducer"
+import orderPayReducer from './Order/OrderPay/OrderPayReducer'
 
 const persistConfig = {
    key: "cart",
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
    profile : profileReducer,
    orders: orderReducer,
    orderDetails: orderDetailsReducer, 
+   orderPay: orderPayReducer,
 });
 export default persistReducer(persistConfig, rootReducer);
 

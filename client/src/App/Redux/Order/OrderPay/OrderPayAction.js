@@ -7,7 +7,7 @@ import {
 
 import axios from 'axios'
 
-export const getOrderDetails = (id, paymentResult) => async (dispatch, getState) => {
+export const payOrder = (id, paymentResult) => async (dispatch, getState) => {
     try {
       dispatch({
         type: ORDER_PAY_REQUEST,
@@ -38,5 +38,5 @@ export const getOrderDetails = (id, paymentResult) => async (dispatch, getState)
         payload: message,
       })
     }
-  }
+}
   
