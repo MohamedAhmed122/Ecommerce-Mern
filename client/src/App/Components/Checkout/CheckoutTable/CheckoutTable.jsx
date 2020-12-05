@@ -12,7 +12,7 @@ export default function CheckoutTable() {
 
     const {shippingAddress, carts } = useSelector(state => state.cart)
     const cart = useSelector((state) => state.cart)  
-    const { orderList, success } = useSelector(state => state.orders)
+    const { order } = useSelector(state => state.orders)
     const dispatch = useDispatch()
     const history = useHistory()
     const addDecimals = (num) => {
@@ -27,15 +27,15 @@ export default function CheckoutTable() {
     Number(cart.shippingPrice) +
     Number(cart.taxPrice)
     ).toFixed(2)
-
     useEffect(()=>{
-        if(!success){
-            history.push(`/orders/${orderList._id}`)
-        }
-        // eslint-disable-next-line
-    },[history, success, ])
 
-console.log(carts);
+        if(order.taxPrice){
+                history.push(`/orders/${order._id}`)
+        }
+    },[history, order])
+ 
+    // console.log(order._id);
+
     const handleSubmit = () =>{
         dispatch(createOrder({
             orderItems: carts,
@@ -46,6 +46,7 @@ console.log(carts);
             shippingPrice: cart.shippingPrice,
             totalPrice: cart.totalPrice 
         }))
+        // if(success) 
     }
     
     return (

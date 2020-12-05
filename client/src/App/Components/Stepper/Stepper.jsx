@@ -51,7 +51,7 @@ export default function HorizontalLinearStepper({activeStep, setActiveStep}) {
          
          
           return (
-            <Step  {...stepProps}>
+            <Step key={index} {...stepProps}>
                 <StepLabel {...labelProps}>{label}</StepLabel>
             </Step>
           );

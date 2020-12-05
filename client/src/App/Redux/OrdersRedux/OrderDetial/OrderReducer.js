@@ -6,8 +6,8 @@ import {
 } from "./OrderTypes"
 
 const initialState ={
-    orderItems: {},
-    loading:false,
+    orderDetails: {},
+    loading:true,
     error: null,
  
 }
@@ -16,14 +16,14 @@ const orderDetailsReducer = (state =initialState, {type, payload} ) =>{
 
     switch(type){
         case ORDER_DETAIL_REQUEST:
-            return{
+            return{ 
                 loading: true,
                 ...state,
             }
         case ORDER_DETAIL_SUCCESS:
             return{
                 loading: false,
-                orderItems: payload,
+                orderDetails: payload,
                 ...state,
             }
         case ORDER_DETAIL_ERROR:

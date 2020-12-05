@@ -9,5 +9,4 @@ const router = express.Router()
 router.route('/').post(protect, CreateOrder)
 router.route('/:id').get(protect, getOrder)
 
-
 export default router
