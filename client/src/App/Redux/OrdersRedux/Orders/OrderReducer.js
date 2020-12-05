@@ -23,7 +23,7 @@ const orderReducer = (state =initialState, {type, payload} ) =>{
             return{
                 loading: false,
                 order: payload,
-                ...state,
+                success: true,
             }
         case ORDER_CREATE_ERROR:
             return{

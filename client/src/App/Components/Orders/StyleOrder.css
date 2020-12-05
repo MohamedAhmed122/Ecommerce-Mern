@@ -1,0 +1,15 @@
+.orders_card{
+    margin: 40px;
+    padding: 20px;
+    margin-top: 150px;
+}
+.orders_card .orders_container div{
+    display: flex;
+    align-items: center;
+    margin: 30px;
+}
+.orders_card .orders_container div .MuiSvgIcon-root{
+    color: #448AFF;
+    margin: 0px 15px;
+
+}
