@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { Chip, Menu, MenuItem } from '@material-ui/core';
 import NavMenu from './NavMenu/NavMenu';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import Logo from './NavMenu/Logo';
 
 export default function Navbar() {
 
@@ -30,7 +31,7 @@ export default function Navbar() {
         <div className="navbar">
             <div className='logo'>
                 <Link to='/'>
-                    Logo
+                    <Logo />
                 </Link>
             </div>
             <div className='navbar__search'> 

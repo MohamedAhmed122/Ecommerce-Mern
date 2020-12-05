@@ -26,3 +26,9 @@
     justify-content: center;
     margin: 35px;
 }
+
+@media(max-width: 900px){
+    .btn_group{
+        flex-direction: column;
+    }
+}

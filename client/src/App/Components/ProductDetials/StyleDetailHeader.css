@@ -41,3 +41,25 @@
 .product_description{
     margin-top: 30px;
 }
+
+@media(max-width: 900px){
+    .detail_header{
+        flex-direction: column;
+    }
+    .detail_header__right{
+        margin-top: 50px;
+    }
+}
+
+@media(max-width: 550px){
+    .detail_header img{
+        width: 300px;
+        height: 250px;
+    }
+    .detail_header__right{
+        margin-left: 20px;
+    }
+    .description{
+        width: 70vw;
+    }
+}

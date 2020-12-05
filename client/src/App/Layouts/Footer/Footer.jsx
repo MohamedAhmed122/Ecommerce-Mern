@@ -10,6 +10,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
 import './Footer.css'
+import Logo from '../Navbar/NavMenu/Logo';
 export default function Footer() {
     return (
         <footer className='footer'> 
@@ -40,7 +41,10 @@ export default function Footer() {
             
 
             <div className='footer_middle'>
-                <h1>LOGO</h1>
+                <div className='logo'>
+                    <Logo  />
+                </div>
+               
                 <Hidden xsDown>
                     <div className='icon_footer social_media'>
                         <IconButton>

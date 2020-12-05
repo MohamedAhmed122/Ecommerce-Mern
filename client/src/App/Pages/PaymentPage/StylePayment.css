@@ -28,3 +28,9 @@
 .payment .btn{
   margin-bottom: 20px;
 }
+
+@media(max-width: 800px){
+    .payment__card{
+        width: 90vw;
+    }
+}

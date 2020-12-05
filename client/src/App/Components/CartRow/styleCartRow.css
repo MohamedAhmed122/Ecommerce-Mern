@@ -31,3 +31,15 @@
     border: 1px solid lightgray;
     width: 100%;
 }
+
+@media(max-width:900px){
+    .cartRow{
+        flex-direction: column;
+    }
+    .cartRow__image{
+        width:40vw;
+    }
+    .cartRow__price p{
+        margin-bottom: 20px;
+    }
+}

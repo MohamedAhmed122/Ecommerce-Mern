@@ -17,7 +17,6 @@ export default function CheckoutRow({item}) {
                     <p>{qty} x ${price} = ${qty * price}</p>
                 </div>
             </div>
-            <hr  className='line'/>
         </Card>
     )
 }

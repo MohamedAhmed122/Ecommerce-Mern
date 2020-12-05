@@ -22,3 +22,9 @@
     border: 1px solid lightgray;
 
 }
+@media(max-width: 600px){
+  
+    .checkout_row{
+        flex-direction: column;
+    }
+}

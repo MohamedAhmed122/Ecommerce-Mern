@@ -15,6 +15,13 @@
 .logo{
     margin:20px 40px;
     font-size: 20px;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
 }
 .links{
     margin-left: auto;

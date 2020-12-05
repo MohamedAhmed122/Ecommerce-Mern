@@ -1,0 +1,9 @@
+.place_order{
+    display: flex;
+    justify-content: center;
+}
+@media(max-width: 1000px){
+    .place_order{
+        flex-direction: column;
+    }
+}
