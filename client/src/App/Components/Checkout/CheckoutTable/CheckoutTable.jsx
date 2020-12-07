@@ -53,6 +53,7 @@ export default function CheckoutTable() {
     
     return (
         <Card className='table'> 
+        
             <div className='table__item'>
                 <p>Country</p>
                 <p>{shippingAddress.country}, {shippingAddress.city}</p>

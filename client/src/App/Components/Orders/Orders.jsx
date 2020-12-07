@@ -16,7 +16,7 @@ export default function Orders({orderDetails, currentUser}) {
 
     const {shippingAddress, isPaid, isDelivered,_id, totalPrice} = orderDetails;
     return (
-        <div>
+
             <Card className='orders_card'>
                 <div className='orders_container'>
                     <div>
@@ -75,9 +75,6 @@ export default function Orders({orderDetails, currentUser}) {
                     </div>
                 </div>
             </Card>
-            <div>
-
-            </div>
-        </div>
+          
     )
 }
