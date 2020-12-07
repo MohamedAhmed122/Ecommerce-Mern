@@ -1,80 +1,74 @@
-import React from 'react'
-import { Card } from '@material-ui/core'
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
-import PersonIcon from '@material-ui/icons/Person';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import HomeIcon from '@material-ui/icons/Home';
-import PaymentIcon from '@material-ui/icons/Payment';
-import CancelIcon from '@material-ui/icons/Cancel';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import ReceiptIcon from '@material-ui/icons/Receipt';
-import './StyleOrder.css'
+import React  from 'react'
+import { Card } from '@material-ui/core';
+import { PayPalButton } from 'react-paypal-button-v2';
+import { useDispatch } from 'react-redux';
+import Loading from '../../Common/Loading';
+import { payOrder } from '../../Redux/Order/OrderPay/OrderPayAction';
 
-export default function Orders({orderDetails, currentUser}) {
+ import './StyleOrder.css'
 
+export default function Orders({orderDetails,id, currentUser, sdkReady}) {
 
+    const dispatch = useDispatch()
 
-    const {shippingAddress, isPaid, isDelivered,_id, totalPrice} = orderDetails;
+    const {shippingAddress, isPaid, totalPrice} = orderDetails;
+
+    const handleSuccess =(result)=>{
+        console.log(result);
+        dispatch(payOrder(id, result))
+      }
+
     return (
-
-            <Card className='orders_card'>
-                <div className='orders_container'>
-                    <div>
-                        <ShoppingBasketIcon fontSize='large'/>
-                        <p>Tracking number {_id} </p>
-                    </div>
-                    <div>
-                        <PersonIcon fontSize='large'/>
-                        <p>{currentUser.name}</p>
-                    </div>
-                    <div>
-                        <MailOutlineIcon fontSize='large'/>
-                        <p>{currentUser.email}</p>
-                    </div>
-                    <div>
-                        <HomeIcon fontSize='large'/>
-                        <p>
-                            {shippingAddress.country}, {shippingAddress.city}, {shippingAddress.address}, {shippingAddress.zipCode}
-                        </p>
-                    </div>
-                    <div>
-                        <PaymentIcon fontSize='large'/>
-                        <p> PayPal</p>
-                    </div>
-                    <div>
-                        <ReceiptIcon fontSize='large'/>
-                        <p>Total is {totalPrice}$</p>
-                    </div>
-                    <div>
-                        {!isPaid ?
-                            <>
-                                <CancelIcon fontSize='large' style={{color: 'red'}}/>
-                                <p style={{color: 'red'}}>  Order hasn't been paid yet</p>
-                            </> :
-                            <>
-                                <CheckCircleIcon fontSize='large' style={{color: 'green'}}/>
-                                <p style={{color: 'green'}}>  Order Has Been Paid </p>
-                            </>
-                        }
-                    </div>
-                    <div>
-                        {isPaid &&
-                            <>
-                                {!isDelivered ?
-                                    <>
-                                        <CancelIcon fontSize='large' style={{color: 'red'}}/>
-                                        <p style={{color: 'red'}}> Hasn't been delivered</p>
-                                    </> :
-                                    <>
-                                        <CheckCircleIcon fontSize='large' style={{color: 'green'}}/>
-                                        <p style={{color: 'green'}}>  has been delivered </p>
-                                    </>
-                                }
-                            </>   
-                        }
-                    </div>
+        <Card className='table'> 
+        
+            <div className='table__item'>
+                <p>Shipping Information</p>
+            </div>
+            <div className='table__item'>
+                <p>Name</p>
+                <p>{currentUser.name}</p>
+            </div>
+            <div className='table__item'>
+                <p>email</p>
+                <p>{currentUser.email}</p>
+            </div>
+            <div className='table__item'>
+                <p>City</p>
+                <p>
+                {shippingAddress.country}, {shippingAddress.city}
+                </p>
+            </div>
+            <div className='table__item'>
+                <p>Address</p>
+                <p>
+                {shippingAddress.address}, {shippingAddress.zipCode}
+                </p>
+            </div>
+            <div className='table__item'>
+                <p>Total</p>
+                <p>{totalPrice}$</p>
+            </div>
+            {!isPaid ?
+                <div className='table__item'>
+                    <p>Status</p>
+                    <p style={{color: 'red'}}>hasn't been paid</p>
+                </div> :
+                <div className='table__item'>
+                    <p>Status</p>
+                    <p style={{color: 'green'}}>  Order Has Been Paid </p>
                 </div>
-            </Card>
-          
+            }
+            
+            <div className='table__bnt'>
+            {
+                !orderDetails.isPaid &&
+                !sdkReady ? <Loading /> : 
+                <PayPalButton 
+                style={{zIndex:0 , width: '100%'}} 
+                amount={orderDetails.totalPrice} 
+                onSuccess={handleSuccess}/>
+              }
+            </div>
+        </Card>
     )
 }

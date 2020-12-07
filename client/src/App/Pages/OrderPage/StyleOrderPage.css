@@ -1,23 +1,9 @@
-.order_page{
-    margin-top: 50px;
+.order_page_container{
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    margin: 10px;
 }
-.order_page_card{
-    width:40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 50px;
-}
-.order_page_card div{
-    margin: 2px;
-    padding: 20px;
-    width: auto;
-}
-.order_page_card  h3{
-    text-align: center;
+.order_row{
+    width: 60%;
+    margin-right: 40px;
 }

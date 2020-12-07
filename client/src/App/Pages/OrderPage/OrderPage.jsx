@@ -10,6 +10,9 @@ import {ORDER_PAY_RESET} from '../../Redux/Order/OrderPay/OrderPayTypes'
 import { payOrder } from '../../Redux/Order/OrderPay/OrderPayAction'
 import { Card } from '@material-ui/core'
 import './StyleOrderPage.css'
+import car from '../../../Animation/car.json'
+import Lottie from 'react-lottie'
+import CartRow from '../../Components/CartRow/CartRow'
 
 export default function OrderPage({history}) {
 
@@ -52,30 +55,36 @@ export default function OrderPage({history}) {
       }
     },[id,dispatch, currentUser,history, orderDetails, success])
 
-    const handleSuccess =(result)=>{
-      console.log(result);
-      dispatch(payOrder(id, result))
-    }
+
+    const defaultOptions = {
+      loop: true,
+      autoplay: true, 
+      animationData: car,
+    };
 
     if (isLoading || !orderDetails) return <Loading />
-
+    console.log(orderDetails);
     return (
         <div className='order_page' >
-          <Orders orderDetails={orderDetails} currentUser={currentUser} sdkReady={sdkReady}/>
-          <Card className='order_page_card'>
-            <div>
-              <h3>Pay Now by PayPal</h3>
+            <Lottie options={defaultOptions}
+            height={900}
+            width='100%'
+            />
+            <div className='order_page_container'>
+              <div className='order_row'>
               {
-                !orderDetails.isPaid &&
-                !sdkReady ? <Loading /> : 
-                <PayPalButton 
-                style={{zIndex:0}} 
-                amount={orderDetails.totalPrice} 
-                onSuccess={handleSuccess}/>
+                orderDetails.orderItems.map(item =>(
+                  <CartRow inverted key={item.product} item={item} />
+                ))
               }
 
-            </div>
-          </Card>
+              </div>
+                <Orders 
+                id={id} 
+                orderDetails={orderDetails} 
+                currentUser={currentUser} 
+                sdkReady={sdkReady}/>
+              </div>
         </div>
     )
 }

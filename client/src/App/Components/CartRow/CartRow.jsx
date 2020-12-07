@@ -9,12 +9,12 @@ import { useDispatch } from 'react-redux'
 import './styleCartRow.css'
 
 
-export default function CartRow({ item, }) {
+export default function CartRow({ item, inverted}) {
 
    
     const dispatch = useDispatch()
     
-    const {image,countInStock, qty, product, name, price} = item;
+    const {image,countInStock, qty, product : id, name, price} = item;
 
     const removeFromCartHandler = (id) => {
         dispatch(removeItemFromCart(id))
@@ -24,9 +24,14 @@ export default function CartRow({ item, }) {
         <Container>
             <div className='cartRow'>
                 <div className='cartRow__image'>
-                    <Card>
+                  {inverted ?  
+                    <>
                         <img src={image} alt='' />
-                    </Card>
+                    </> :
+                    <Card>
+                          <img src={image} alt='' />
+                     </Card> 
+                    }
                 </div>
                 <div  className='cartRow__title'>
                 <Typography gutterBottom variant="h6" align='center' component="h4">
@@ -36,28 +41,34 @@ export default function CartRow({ item, }) {
                 <div  className='cartRow__price'>
                     <p>${price}</p>
                 </div>
-                <div  className='cartRow__from'>
-                    <FromSelect 
-                    selectValue={qty} 
-                    maniValue={qty}
-                    onChange={(e) =>dispatch(addToCart(product, Number(e.target.value)))}
-                    >
-                         {
-                        [...Array(countInStock).keys()].map(num =>(
-                                <MenuItem key={num+1} value={num+1}>{num +1}</MenuItem>
-                        ))
-                    }
-                    </FromSelect>
-                </div>
+                {
+                    inverted?
+                    <p>{qty} Items</p>
+                    :
+                    <div  className='cartRow__from'>
+                        <FromSelect 
+                        selectValue={qty} 
+                        maniValue={qty}
+                        onChange={(e) =>dispatch(addToCart(id, Number(e.target.value)))}
+                        >
+                            {
+                            [...Array(countInStock).keys()].map(num =>(
+                                    <MenuItem key={num+1} value={num+1}>{num +1}</MenuItem>
+                            ))
+                        }
+                        </FromSelect>
+                    </div>
+                }
+               { !inverted &&
                 <div  className='cartRow__delete'>
-                    <IconButton   onClick={() => removeFromCartHandler(product)}>
+                    <IconButton   onClick={() => removeFromCartHandler(id)}>
                         <DeleteIcon 
                         fontSize='large' 
                         style={{color:'#D32F2F'}}
                         />
                     </IconButton>
 
-                </div>
+                </div>}
             </div>
             <hr className='divider'/>
         </Container>
