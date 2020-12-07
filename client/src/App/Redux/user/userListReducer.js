@@ -1,14 +1,14 @@
-const { USER_LIST_REQUEST, USER_LIST_SUCCESS, USER_LIST_ERROR } = require("./userTypes")
+import {USER_LIST_REQUEST, USER_LIST_SUCCESS, USER_LIST_ERROR} from './UsersListTypes'
 
 
 const initialState ={
     loading: false,
     error: null,
-    listUsers: []
+    usersList: []
 }
 
 
-const listReducer = (state = initialState, {payload, type}) =>{
+const listReducer = (state = initialState, {type, payload}) =>{
 
     switch(type){
         case USER_LIST_REQUEST:
@@ -18,12 +18,13 @@ const listReducer = (state = initialState, {payload, type}) =>{
         case USER_LIST_SUCCESS:
             return{
                 loading: false,
-                listUsers: payload
+                usersList: payload,
+                ...state
             }
         case USER_LIST_ERROR:
             return{
+                loading: false,
                 error: payload,
-                ...state
             }
         default: return state
     }

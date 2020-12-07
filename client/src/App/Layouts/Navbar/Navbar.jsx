@@ -50,6 +50,7 @@ export default function Navbar() {
                         <PersonIcon />
                     </>}
                    <NavMenu 
+                   currentUser={currentUser}
                    isAuthenticated={isAuthenticated}
                    setAnchorEl={setAnchorEl} 
                    setOpenMenu={setOpenMenu}  

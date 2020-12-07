@@ -1,5 +1,5 @@
 import axios from "axios"
-import { USER_LIST_ERROR, USER_LIST_REQUEST, USER_LIST_SUCCESS } from "./userTypes"
+import {USER_LIST_REQUEST, USER_LIST_SUCCESS, USER_LIST_ERROR} from './UsersListTypes'
 
 export const getUserList = ()  => async(dispatch, getState) =>{
     try {
@@ -12,7 +12,7 @@ export const getUserList = ()  => async(dispatch, getState) =>{
                  Authorization: `Bearer ${currentUser.token}`,
              }
          }
-         const { data } = await axios.put(`api/users`, config )
+         const { data } = await axios.get('/api/users', config)
          dispatch({type: USER_LIST_REQUEST, payload: data})
          console.log(data)
  
