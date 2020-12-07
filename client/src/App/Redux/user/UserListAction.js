@@ -3,7 +3,7 @@ import {USER_LIST_REQUEST, USER_LIST_SUCCESS, USER_LIST_ERROR} from './UsersList
 
 export const getUserList = ()  => async(dispatch, getState) =>{
     try {
-         dispatch({type: USER_LIST_SUCCESS})
+         dispatch({type: USER_LIST_REQUEST})
  
          const {user :{ currentUser }} = getState()
  
@@ -13,7 +13,7 @@ export const getUserList = ()  => async(dispatch, getState) =>{
              }
          }
          const { data } = await axios.get('/api/users', config)
-         dispatch({type: USER_LIST_REQUEST, payload: data})
+         dispatch({type: USER_LIST_SUCCESS , payload: data})
          console.log(data)
  
      } catch (error) {

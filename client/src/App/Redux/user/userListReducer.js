@@ -14,6 +14,7 @@ const listReducer = (state = initialState, {type, payload}) =>{
         case USER_LIST_REQUEST:
             return{
                 loading: true,
+                ...state,
             }
         case USER_LIST_SUCCESS:
             return{
@@ -25,6 +26,7 @@ const listReducer = (state = initialState, {type, payload}) =>{
             return{
                 loading: false,
                 error: payload,
+                ...state,
             }
         default: return state
     }

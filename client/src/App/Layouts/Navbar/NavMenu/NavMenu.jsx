@@ -14,6 +14,7 @@ export default function NavMenu({anchorEl,currentUser, setAnchorEl,setOpenMenu, 
         setOpenMenu(false);
       };
     const handleLogout =() =>{
+        history.push('/ ')
         dispatch(userLogout())
         handleClose()
     }
@@ -22,10 +23,11 @@ export default function NavMenu({anchorEl,currentUser, setAnchorEl,setOpenMenu, 
         handleClose();
     }
 
+    console.log(currentUser?.isAdmin )
     return (
         <div className='nav_menu' style={{backgroundColor: 'black'}}>
             {
-                currentUser?.isAdmin?
+                currentUser?.isAdmin ?
                 <Menu
                     id="simple-menu"
                     className='nav_menu_'

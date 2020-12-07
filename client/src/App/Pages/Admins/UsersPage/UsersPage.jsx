@@ -20,20 +20,27 @@ import {
     TableHead, 
     TableRow } from '@material-ui/core';
 
+import './styleUsersPage.css'
 
-export default function UsersPage() {
+
+export default function UsersPage({history}) {
 
     const dispatch = useDispatch()
     const {usersList } = useSelector(state => state.usersList) 
+    const { currentUser } = useSelector(state => state.user)
     useEffect(()=>{
-        dispatch(getUserList())
-    },[dispatch])
+        if(currentUser.isAdmin){
+            dispatch(getUserList())
+        }else{
+            history.push('/login')
+        }
+    },[dispatch, history, currentUser])
 
-    console.log(usersList)
-
+    if(!usersList) return<Loading />
+    console.log(currentUser.isAdmin)
     return (
       
-        <div style={{marginTop: 140}}>
+        <div className='users_table'>
             <TableContainer component={Paper}>
             <Table  aria-label="simple table">
                 <TableHead>
@@ -42,7 +49,7 @@ export default function UsersPage() {
                         <TableCell align="right">NAME</TableCell>
                         <TableCell align="right">EMAIL</TableCell>
                         <TableCell align="right">ADMIN</TableCell>
-                        <TableCell align="right">EDIT?DELETE</TableCell>
+                        <TableCell align="right">ACTIONS</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -55,13 +62,14 @@ export default function UsersPage() {
                             <TableCell align="right">{users.email}</TableCell>
                             <TableCell align="right">
                                 {users.isAdmin ? 
-                                (<CheckCircleIcon fontSize='large' style={{color: 'green'}} />) :
-                                (<CancelIcon fontSize='large' style={{color:'red'}} />)
+                                <CancelIcon fontSize='large' style={{color:'red'}} />
+                                :
+                                <CheckCircleIcon fontSize='large' style={{color: 'green'}} /> 
                                 }
                             </TableCell>
                             <TableCell align="right">
                                 <ButtonGroup variant="contained">
-                                    <Button style={{color: 'lightgray'}}>
+                                    <Button style={{color: 'black'}}>
                                         <EditIcon />
                                     </Button>
                                     <Button style={{color: 'red'}}>
