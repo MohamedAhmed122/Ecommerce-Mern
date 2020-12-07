@@ -11,7 +11,7 @@ export default function Orders({orderDetails,id, currentUser, sdkReady}) {
 
     const dispatch = useDispatch()
 
-    const {shippingAddress, isPaid, totalPrice} = orderDetails;
+    const {shippingAddress,_id, isPaid, totalPrice} = orderDetails;
 
     const handleSuccess =(result)=>{
         console.log(result);
@@ -23,6 +23,10 @@ export default function Orders({orderDetails,id, currentUser, sdkReady}) {
         
             <div className='table__item'>
                 <p>Shipping Information</p>
+            </div>
+            <div className='table__item'>
+                <p>ORDER</p>
+                <p>{_id}</p>
             </div>
             <div className='table__item'>
                 <p>Name</p>
@@ -65,7 +69,7 @@ export default function Orders({orderDetails,id, currentUser, sdkReady}) {
                 !sdkReady ? <Loading /> : 
                 <PayPalButton 
                 style={{zIndex:0 , width: '100%'}} 
-                amount={orderDetails.totalPrice} 
+                amount={totalPrice} 
                 onSuccess={handleSuccess}/>
               }
             </div>

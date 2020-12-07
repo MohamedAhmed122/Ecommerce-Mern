@@ -43,7 +43,7 @@ export default function CartRow({ item, inverted}) {
                 </div>
                 {
                     inverted?
-                    <p>{qty} Items</p>
+                    <p>{qty}</p>
                     :
                     <div  className='cartRow__from'>
                         <FromSelect 
