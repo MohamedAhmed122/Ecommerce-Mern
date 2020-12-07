@@ -1,10 +1,16 @@
-import {USER_LIST_REQUEST, USER_LIST_SUCCESS, USER_LIST_ERROR} from './UsersListTypes'
+import {
+    USER_LIST_REQUEST, 
+    USER_LIST_SUCCESS, 
+    USER_LIST_ERROR,
+    ADMIN_DELETE_USER
+} from './UsersListTypes'
 
 
 const initialState ={
     loading: false,
     error: null,
-    usersList: []
+    usersList: [],
+    success: false
 }
 
 
@@ -26,6 +32,12 @@ const listReducer = (state = initialState, {type, payload}) =>{
             return{
                 loading: false,
                 error: payload,
+                ...state,
+            }
+        case ADMIN_DELETE_USER:
+            return{
+                loading: false,
+                success: true,
                 ...state,
             }
         default: return state

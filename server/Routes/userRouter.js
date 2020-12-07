@@ -14,7 +14,7 @@ const router = express.Router()
 
 router.route('/').post(registerUser).get(protect,admin, getUsers)
 
-router.post('/:id', protect,admin, deleteUser)
+router.delete('/:id', protect,admin, deleteUser)
 
 router.post('/login', authUser)
 

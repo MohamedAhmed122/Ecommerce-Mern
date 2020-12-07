@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 import {useDispatch, useSelector } from 'react-redux'
-import { getUserList } from "../../../Redux/user/UserListAction"
+import { getUserList, adminDeleteUser } from "../../../Redux/user/UserListAction"
 
 import Loading from '../../../Common/Loading'
 
@@ -72,7 +72,9 @@ export default function UsersPage({history}) {
                                     <Button style={{color: 'black'}}>
                                         <EditIcon />
                                     </Button>
-                                    <Button style={{color: 'red'}}>
+                                    <Button 
+                                    style={{color: 'red'}} 
+                                    onClick={()=> dispatch(adminDeleteUser(users._id))} >
                                         <DeleteIcon />
                                     </Button>
                                 </ButtonGroup>

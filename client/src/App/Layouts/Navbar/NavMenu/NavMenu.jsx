@@ -14,7 +14,7 @@ export default function NavMenu({anchorEl,currentUser, setAnchorEl,setOpenMenu, 
         setOpenMenu(false);
       };
     const handleLogout =() =>{
-        history.push('/ ')
+        history.push('/')
         dispatch(userLogout())
         handleClose()
     }
