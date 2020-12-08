@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 
 import {useDispatch, useSelector } from 'react-redux'
 import { productList } from "../../../Redux/products/ProductList/ProductListAction"
+import { adminDeleteProduct } from '../../../Redux/Admin/Admin-delete-product/RemoveProductAction'
 
 import Loading from '../../../Common/Loading'
 
@@ -26,6 +27,7 @@ export default function ProductListPage({history}) {
     const dispatch = useDispatch()
     const { products } = useSelector(state => state.productList) 
     const { currentUser } = useSelector(state => state.user)
+    const { success } = useSelector(state => state.adminRemoveProduct)
 
 
     useEffect(()=>{
@@ -34,7 +36,7 @@ export default function ProductListPage({history}) {
         }else{
             history.push('/login')
         }
-    },[dispatch, history, currentUser])
+    },[dispatch, success, history, currentUser])
 
     if(!products) return<Loading />
     return (
@@ -71,7 +73,9 @@ export default function ProductListPage({history}) {
                                         <EditIcon />
                                     </Button>
                                     <Button 
-                                    style={{color: 'red'}} >
+                                    style={{color: 'red'}} 
+                                    onClick={()=> dispatch(adminDeleteProduct(product._id))}
+                                    >
                                         <DeleteIcon />
                                     </Button>
                                 </ButtonGroup>
