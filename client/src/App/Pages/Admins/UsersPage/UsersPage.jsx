@@ -74,7 +74,7 @@ export default function UsersPage({history}) {
                             <TableCell align="right">
                                 <ButtonGroup variant="contained">
                                     <Button 
-                                    onClick={()=> history.push(`/users/${users._id}/edit`)}
+                                    onClick={()=> history.push(`/admin/users/${users._id}/edit`)}
                                     style={{color: 'black'}}>
                                         <EditIcon />
                                     </Button>

@@ -6,7 +6,9 @@ import {
   getUserProfile, 
   getUsers, 
   registerUser, 
-  updateUserProfile 
+  updateUserProfile,
+  getUserById,
+  updateUser 
 }  from '../Controllers/userController.js'
 
 
@@ -14,7 +16,11 @@ const router = express.Router()
 
 router.route('/').post(registerUser).get(protect,admin, getUsers)
 
-router.delete('/:id', protect,admin, deleteUser)
+router
+  .route('/:id')
+  .delete(protect, admin, deleteUser)
+  .get(protect, admin, getUserById)
+  .put(protect, admin, updateUser)
 
 router.post('/login', authUser)
 
