@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import{ Formik, Form } from 'formik'
 import * as Yup from 'yup'
@@ -6,10 +6,13 @@ import * as Yup from 'yup'
 import CustomButton from '../../Components/CustomButton/CustomButton'
 import FromText from '../../Components/Forms/FromText';
 
+import { AdminGetUserById } from '../../Redux/Admin/Admin-users/AdminUserAction'
+
 import { Card } from '@material-ui/core';
 
 import {useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom' 
+import Loading from '../../Common/Loading';
 
 
 const validationSchema = Yup.object({
@@ -23,7 +26,13 @@ export default function EditUserPage() {
 
     const dispatch = useDispatch()
     const { id } = useParams()
+    const { userDetails } = useSelector(state => state.adminGetUser)
 
+    useEffect(()=>{
+        dispatch(AdminGetUserById(id))
+    },[id, dispatch])
+
+    if( !userDetails ) return <Loading />
 
     return (
         <div className='login_screen'>
@@ -32,7 +41,11 @@ export default function EditUserPage() {
                 <div className='login_form_container'>
                     
                     <Formik
-                        initialValues={{name: '',email:'', isAdmin: false}}
+                        initialValues={{
+                            name: userDetails.name ||'',
+                            email: userDetails.email ||'', 
+                            isAdmin: userDetails.isAdmin ||""
+                        }}
                         validationSchema={validationSchema}
                         onSubmit={(values) =>{
                         console.log(values)
