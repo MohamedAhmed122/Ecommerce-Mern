@@ -26,7 +26,7 @@ import './styleUsersPage.css'
 export default function UsersPage({history}) {
 
     const dispatch = useDispatch()
-    const {users } = useSelector(state => state.usersList) 
+    const {users, success: successDelete } = useSelector(state => state.usersList) 
     const { currentUser } = useSelector(state => state.user)
 
 
@@ -37,7 +37,7 @@ export default function UsersPage({history}) {
         }else{
             history.push('/login')
         }
-    },[dispatch, history, currentUser])
+    },[dispatch, history,successDelete, currentUser])
 
     if(!users) return<Loading />
     console.log(users, "list of users")

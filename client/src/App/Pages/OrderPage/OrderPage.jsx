@@ -4,11 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Loading from '../../Common/Loading'
 import Orders from '../../Components/Orders/Orders'
-import { PayPalButton } from "react-paypal-button-v2";
 import { getOrderDetails } from "../../Redux/Order/OrderDetial/OrderDetailAction"
 import {ORDER_PAY_RESET} from '../../Redux/Order/OrderPay/OrderPayTypes'
-import { payOrder } from '../../Redux/Order/OrderPay/OrderPayAction'
-import { Card } from '@material-ui/core'
 import './StyleOrderPage.css'
 import car from '../../../Animation/car.json'
 import Lottie from 'react-lottie'

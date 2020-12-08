@@ -8,7 +8,7 @@ import Alert from '../../Common/Alert'
 
 import './StyleCartPage.css'
 
-import {addToCart, removeItemFromCart} from '../../Redux/cart/CartAction'
+import {addToCart} from '../../Redux/cart/CartAction'
 import { calculateTotal } from '../../utilities/utility';
 
 

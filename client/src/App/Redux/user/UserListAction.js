@@ -31,7 +31,7 @@ export const getUserList = ()  => async(dispatch, getState) =>{
      }
  } 
 
- 
+
  export const adminDeleteUser = (id) => async (dispatch, getState) =>{
     try {
         dispatch({type: USER_LIST_REQUEST})
@@ -45,8 +45,7 @@ export const getUserList = ()  => async(dispatch, getState) =>{
         }
         const { data } = await axios.delete(`/api/users/${id}`, config)
         dispatch({type: ADMIN_DELETE_USER , payload: data})
-        dispatch(getUserList())
-        console.log(data)
+       
 
     } catch (error) {
 

@@ -7,7 +7,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import './StyleNavbar.css'
 import FaceIcon from '@material-ui/icons/Face';
 import { useSelector } from 'react-redux';
-import { Chip, Menu, MenuItem } from '@material-ui/core';
+import { Chip } from '@material-ui/core';
 import NavMenu from './NavMenu/NavMenu';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Logo from './NavMenu/Logo';
