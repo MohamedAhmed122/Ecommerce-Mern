@@ -9,7 +9,7 @@ import {
 const initialState ={
     loading: false,
     error: null,
-    usersList: [],
+    users: [],
     success: false
 }
 
@@ -25,14 +25,14 @@ const listReducer = (state = initialState, {type, payload}) =>{
         case USER_LIST_SUCCESS:
             return{
                 loading: false,
-                usersList: payload,
+                users: payload,
                 ...state
             }
         case USER_LIST_ERROR:
             return{
                 loading: false,
                 error: payload,
-                ...state,
+                ...state, 
             }
         case ADMIN_DELETE_USER:
             return{

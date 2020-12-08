@@ -27,7 +27,7 @@ export default function NavMenu({anchorEl,currentUser, setAnchorEl,setOpenMenu, 
     return (
         <div className='nav_menu' style={{backgroundColor: 'black'}}>
             {
-                currentUser?.isAdmin ?
+                currentUser?.isAdmin === "true" ?
                 <Menu
                     id="simple-menu"
                     className='nav_menu_'

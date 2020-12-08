@@ -26,18 +26,21 @@ import './styleUsersPage.css'
 export default function UsersPage({history}) {
 
     const dispatch = useDispatch()
-    const {usersList } = useSelector(state => state.usersList) 
+    const {users } = useSelector(state => state.usersList) 
     const { currentUser } = useSelector(state => state.user)
+
+
     useEffect(()=>{
-        if(currentUser.isAdmin){
+        if(currentUser.isAdmin === "true"){
+            console.log(currentUser.isAdmin)
             dispatch(getUserList())
         }else{
             history.push('/login')
         }
     },[dispatch, history, currentUser])
 
-    if(!usersList) return<Loading />
-    console.log(currentUser.isAdmin)
+    if(!users) return<Loading />
+    console.log(users, "list of users")
     return (
       
         <div className='users_table'>
@@ -53,7 +56,7 @@ export default function UsersPage({history}) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {usersList?.map((users) => (
+                    {users?.map((users) => (
                         <TableRow key={users._id}>
                             <TableCell component="th" scope="row">
                                 {users._id}
@@ -61,7 +64,7 @@ export default function UsersPage({history}) {
                             <TableCell align="right">{users.name}</TableCell>
                             <TableCell align="right">{users.email}</TableCell>
                             <TableCell align="right">
-                                {users.isAdmin ? 
+                                {users.isAdmin === "false"? 
                                 <CancelIcon fontSize='large' style={{color:'red'}} />
                                 :
                                 <CheckCircleIcon fontSize='large' style={{color: 'green'}} /> 
