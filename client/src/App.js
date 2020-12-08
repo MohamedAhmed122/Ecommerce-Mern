@@ -14,8 +14,11 @@ import PaymentPage from './App/Pages/PaymentPage/PaymentPage';
 import PlaceOrderPage from './App/Pages/PlaceOrderPage/PlaceOrderPage';
 import OrderPage from './App/Pages/OrderPage/OrderPage';
 import UsersPage from './App/Pages/Admins/UsersPage/UsersPage';
-import EditUserPage from './App/Pages/EditUserPage/EditUserPage';
+import EditUserPage from './App/Pages/Admins/EditUserPage/EditUserPage';
 import ProductListPage from './App/Pages/Admins/ProductsPage/ProductsPage';
+import EditProductPage from "./App/Pages/Admins/EditProductPage/EditProductPage"
+
+
 
 function App() {
   return (
@@ -35,6 +38,7 @@ function App() {
             <Route path='/admin/userList' component={UsersPage} />
             <Route path='/admin/users/:id/edit' component={EditUserPage} />
             <Route path ='/admin/productsList' component={ProductListPage} />
+            <Route path='/admin/product/:id/edit' component={EditProductPage}/>
           </Switch>
         <Footer />
 
