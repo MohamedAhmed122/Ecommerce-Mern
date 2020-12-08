@@ -2,46 +2,45 @@ import {
     USER_LIST_REQUEST, 
     USER_LIST_SUCCESS, 
     USER_LIST_ERROR,
-    ADMIN_DELETE_USER
+    USER_DELETE_REQUEST,
+    USER_DELETE_SUCCESS,
+    USER_DELETE_ERROR
 } from './UsersListTypes'
 
 
-const initialState ={
-    loading: false,
-    error: null,
-    users: [],
-    success: false
-}
+// const initialState ={
+//     loading: false,
+//     error: null,
+//     users: [],
+//     success: false
+// }
 
 
-const listReducer = (state = initialState, {type, payload}) =>{
 
-    switch(type){
+const userListReducer = (state = { users: [] }, action) => {
+    switch (action.type) {
         case USER_LIST_REQUEST:
-            return{
-                loading: true,
-                ...state,
-            }
+        return { loading: true }
         case USER_LIST_SUCCESS:
-            return{
-                loading: false,
-                users: payload,
-                ...state
-            }
+        return { loading: false, users: action.payload }
         case USER_LIST_ERROR:
-            return{
-                loading: false,
-                error: payload,
-                ...state, 
-            }
-        case ADMIN_DELETE_USER:
-            return{
-                loading: false,
-                success: true,
-                ...state,
-            }
-        default: return state
+        return { loading: false, error: action.payload }
+        
+        default:
+        return state
     }
 }
+export const userDeleteReducer = (state = {}, action) => {
+    switch (action.type) {
+      case USER_DELETE_REQUEST:
+        return { loading: true }
+      case USER_DELETE_SUCCESS:
+        return { loading: false, success: true }
+      case USER_DELETE_ERROR:
+        return { loading: false, error: action.payload }
+      default:
+        return state
+    }
+  }
 
-export default listReducer;
+export default userListReducer;

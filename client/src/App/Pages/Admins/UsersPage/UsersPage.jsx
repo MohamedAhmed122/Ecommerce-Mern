@@ -26,7 +26,8 @@ import './styleUsersPage.css'
 export default function UsersPage({history}) {
 
     const dispatch = useDispatch()
-    const {users, success: successDelete } = useSelector(state => state.usersList) 
+    const {users,  } = useSelector(state => state.usersList) 
+    const { success: successDelete} = useSelector(state => state.userDelete)
     const { currentUser } = useSelector(state => state.user)
 
 
@@ -72,7 +73,9 @@ export default function UsersPage({history}) {
                             </TableCell>
                             <TableCell align="right">
                                 <ButtonGroup variant="contained">
-                                    <Button style={{color: 'black'}}>
+                                    <Button 
+                                    onClick={()=> history.push(`/users/${users._id}/edit`)}
+                                    style={{color: 'black'}}>
                                         <EditIcon />
                                     </Button>
                                     <Button 
