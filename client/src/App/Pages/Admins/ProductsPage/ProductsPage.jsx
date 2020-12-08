@@ -25,7 +25,7 @@ import CustomButton from '../../../Components/CustomButton/CustomButton';
 export default function ProductListPage({history}) {
 
     const dispatch = useDispatch()
-    const { products } = useSelector(state => state.productList) 
+    const { products, } = useSelector(state => state.productList) 
     const { currentUser } = useSelector(state => state.user)
     const { success } = useSelector(state => state.adminRemoveProduct)
 
