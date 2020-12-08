@@ -15,6 +15,7 @@ import PlaceOrderPage from './App/Pages/PlaceOrderPage/PlaceOrderPage';
 import OrderPage from './App/Pages/OrderPage/OrderPage';
 import UsersPage from './App/Pages/Admins/UsersPage/UsersPage';
 import EditUserPage from './App/Pages/EditUserPage/EditUserPage';
+import ProductListPage from './App/Pages/Admins/ProductsPage/ProductsPage';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path='/orders/:id' component={OrderPage} />
             <Route path='/admin/userList' component={UsersPage} />
             <Route path='/admin/users/:id/edit' component={EditUserPage} />
+            <Route path ='/admin/productsList' component={ProductListPage} />
           </Switch>
         <Footer />
 

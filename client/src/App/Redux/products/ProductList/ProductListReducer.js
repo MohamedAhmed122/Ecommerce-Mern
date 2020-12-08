@@ -12,7 +12,7 @@ const productListReducer = (state = initialState, {type, payload}) =>{
     switch(type){
         case PRODUCT_LIST_REQUEST:
             return{
-                ...state,
+                ...state, 
                 loading: true
             }
         case PRODUCT_LIST_SUCCESS:

@@ -3,7 +3,7 @@ import asyncHandler from 'express-async-handler'
 
 
 
-// @desc   Fetch all products
+// @desc   Fetch all products 
 //@route   Get /api/products
 //@Access  Public
 export const getProducts = asyncHandler (async (req, res) =>{
@@ -23,3 +23,4 @@ export const getProductById = asyncHandler (async (req, res) =>{
         throw new Error('Product Not Found')
     }
 })
+
