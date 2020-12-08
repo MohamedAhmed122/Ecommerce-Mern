@@ -15,6 +15,7 @@ import orderPayReducer from './Order/OrderPay/OrderPayReducer'
 import listReducer, { userDeleteReducer } from './user/userListReducer'
 import {adminGetUserReducer, adminUpdateUserReducer} from './Admin/Admin-users/AdminUserReducer'
 import removeProductReducer from "./Admin/Admin-delete-product/RemoveProductReducer";
+import createProductReducer from "./Admin/Admin-create-product/CreateProductReducer";
 
 const persistConfig = {
    key: "cart",
@@ -26,7 +27,7 @@ const rootReducer = combineReducers({
    productList :productListReducer,
    productDetail:ProductDetailReducer,
    cart: CartReducer,
-   user: userReducer,
+   user: userReducer, 
    profile : profileReducer,
    orders: orderReducer,
    orderDetails: orderDetailsReducer, 
@@ -35,7 +36,8 @@ const rootReducer = combineReducers({
    userDelete: userDeleteReducer,
    adminGetUser: adminGetUserReducer,
    adminUpdateUser:adminUpdateUserReducer,
-   adminRemoveProduct :removeProductReducer
+   adminRemoveProduct :removeProductReducer,
+   createProduct : createProductReducer,
 });
 export default persistReducer(persistConfig, rootReducer);
 

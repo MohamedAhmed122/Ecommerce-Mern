@@ -7,7 +7,7 @@ import {
 } from './CreateProductTypes'
 
 
-export const adminDeleteProduct = (productDetail) => async (dispatch, getState) =>{
+export const adminCreateProduct = () => async (dispatch, getState) =>{
     try {
         dispatch({
           type: ADMIN_CREATE_PRODUCT_REQUEST,
@@ -18,9 +18,9 @@ export const adminDeleteProduct = (productDetail) => async (dispatch, getState) 
           headers: {
             Authorization: `Bearer ${currentUser.token}`,
           },
-        }
+        } 
     
-        const { data } = await axios.post(`/api/products/`, productDetail, config)
+        const { data } = await axios.post(`/api/products`, {}, config)
     
         dispatch({ type: ADMIN_CREATE_PRODUCT_SUCCESS, payload: data })
         console.log(data)

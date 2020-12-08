@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 
 import {useDispatch, useSelector } from 'react-redux'
+
 import { productList } from "../../../Redux/products/ProductList/ProductListAction"
 import { adminDeleteProduct } from '../../../Redux/Admin/Admin-delete-product/RemoveProductAction'
+import { adminCreateProduct } from '../../../Redux/Admin/Admin-create-product/CreateProductAction'
 
 import Loading from '../../../Common/Loading'
 
@@ -27,7 +29,8 @@ export default function ProductListPage({history}) {
     const dispatch = useDispatch()
     const { products, } = useSelector(state => state.productList) 
     const { currentUser } = useSelector(state => state.user)
-    const { success } = useSelector(state => state.adminRemoveProduct)
+    const { success : successDelete  } = useSelector(state => state.adminRemoveProduct)
+    const { success : successCreate  } = useSelector(state => state.createProduct)
 
 
     useEffect(()=>{
@@ -36,7 +39,7 @@ export default function ProductListPage({history}) {
         }else{
             history.push('/login')
         }
-    },[dispatch, success, history, currentUser])
+    },[dispatch, successDelete, history,successCreate, currentUser])
 
     if(!products) return<Loading />
     return (
@@ -85,7 +88,7 @@ export default function ProductListPage({history}) {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <CustomButton title='Create New' />
+            <CustomButton title='Create New' onClick={()=> dispatch(adminCreateProduct())} />
         </div>
     )
 }
