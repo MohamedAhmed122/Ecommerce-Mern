@@ -6,7 +6,7 @@ import * as Yup from 'yup'
 import CustomButton from '../../Components/CustomButton/CustomButton'
 import FromText from '../../Components/Forms/FromText';
 
-import { AdminGetUserById } from '../../Redux/Admin/Admin-users/AdminUserAction'
+import { AdminGetUserById, AdminUpdateUserById } from '../../Redux/Admin/Admin-users/AdminUserAction'
 
 import { Card } from '@material-ui/core';
 
@@ -27,10 +27,11 @@ export default function EditUserPage() {
     const dispatch = useDispatch()
     const { id } = useParams()
     const { userDetails } = useSelector(state => state.adminGetUser)
+    const { success } = useSelector(state => state.adminUpdateUser)
 
     useEffect(()=>{
         dispatch(AdminGetUserById(id))
-    },[id, dispatch])
+    },[id, dispatch, success])
 
     if( !userDetails ) return <Loading />
 
@@ -42,13 +43,14 @@ export default function EditUserPage() {
                     
                     <Formik
                         initialValues={{
-                            name: userDetails.name ||'',
-                            email: userDetails.email ||'', 
-                            isAdmin: userDetails.isAdmin ||""
+                            name: userDetails?.name ||'',
+                            email: userDetails?.email ||'', 
+                            isAdmin: userDetails?.isAdmin ||""
                         }}
                         validationSchema={validationSchema}
                         onSubmit={(values) =>{
-                        console.log(values)
+                        dispatch(AdminUpdateUserById
+                            (id, values.email,values.name, values.isAdmin))
                         }}
                     >
                         {({ dirty,isSubmitting, isValid })=>(
