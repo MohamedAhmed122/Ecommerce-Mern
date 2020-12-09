@@ -32,6 +32,7 @@ export default function ProductListPage({history}) {
     const { currentUser } = useSelector(state => state.user)
     const { success : successDelete  } = useSelector(state => state.adminRemoveProduct)
     const { success : successCreate  } = useSelector(state => state.createProduct)
+    const { success : successUpdated } = useSelector(state => state.updateProduct)
 
 
     useEffect(()=>{
@@ -40,7 +41,7 @@ export default function ProductListPage({history}) {
         }else{
             history.push('/login')
         }
-    },[dispatch, successDelete, history,successCreate, currentUser])
+    },[dispatch, successDelete, history,successCreate, currentUser, successUpdated])
 
     if(!products) return<Loading />
     return (
