@@ -16,7 +16,7 @@ export default function OrderPage({history}) {
     const [sdkReady, setSdkReady] = useState(false)
     const dispatch = useDispatch()
     const {success} = useSelector(state => state.orderPay)
-    const { orderDetails, isLoading } = useSelector(state => state.orderDetails)
+    const { order } = useSelector(state => state.orderDetails)
     const { currentUser }= useSelector(state => state.user)
     const { id } = useParams();
     // console.log(id);
@@ -39,18 +39,18 @@ export default function OrderPage({history}) {
         document.body.appendChild(script)
       }
   
-      if (!orderDetails || success || orderDetails._id !== id) {
+      if (!order || success || order._id !== id) {
         dispatch({ type: ORDER_PAY_RESET })
         // dispatch({ type: ORDER_DELIVER_RESET })
         dispatch(getOrderDetails(id))
-      } else if (!orderDetails.isPaid) {
+      } else if (!order.isPaid) {
         if (!window.paypal) {
           addPayPalScript()
         } else {
           setSdkReady(true)
         }
       }
-    },[id,dispatch, currentUser,history, orderDetails, success])
+    },[id,dispatch, currentUser,history, order, success])
 
 
     const defaultOptions = {
@@ -59,8 +59,8 @@ export default function OrderPage({history}) {
       animationData: car,
     };
 
-    if (isLoading || !orderDetails) return <Loading />
-    console.log(orderDetails);
+    if ( !order) return <Loading />
+    console.log(order);
     return (
         <div className='order_page' >
             <Lottie options={defaultOptions}
@@ -70,7 +70,7 @@ export default function OrderPage({history}) {
             <div className='order_page_container'>
               <div className='order_row'>
               {
-                orderDetails.orderItems.map(item =>(
+                order.orderItems.map(item =>(
                   <CartRow inverted key={item.product} item={item} />
                 ))
               }
@@ -78,7 +78,7 @@ export default function OrderPage({history}) {
               </div>
                 <Orders 
                 id={id} 
-                orderDetails={orderDetails} 
+                orderDetails={order} 
                 currentUser={currentUser} 
                 sdkReady={sdkReady}/>
               </div>
