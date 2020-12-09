@@ -4,6 +4,7 @@
     align-items: center;
     width: 100vw;
     flex-direction: column;
+    height: 130vh;
 }
 
 .login_screen h1{
