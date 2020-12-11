@@ -18,12 +18,14 @@ import EditUserPage from './App/Pages/Admins/EditUserPage/EditUserPage';
 import ProductListPage from './App/Pages/Admins/ProductsPage/ProductsPage';
 import EditProductPage from "./App/Pages/Admins/EditProductPage/EditProductPage"
 import OrdersPage from './App/Pages/Admins/OrdersPage/OrdersPage';
+import ResponsiveHeader from './App/Layouts/Navbar/ResponsiveNavbar/ResponsiveNavbar';
 
 
 
 function App() {
   return (
     <div>
+      {/* <ResponsiveHeader/> */}
         <Navbar />
           <Switch>
             <Route exact path='/' component={HomePage} />
