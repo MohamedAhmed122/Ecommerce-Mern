@@ -4,6 +4,7 @@ import dotenv from'dotenv'
 import productRouter from './Routes/productRoutes.js'
 import userRouter from './Routes/userRouter.js'
 import ordersRouter from './Routes/OrderRoute.js'
+import uploadRouter from './Routes/UploadsRoute.js'
 
 import colors from 'colors'
 import connectDB from './config/db.js';
@@ -28,6 +29,7 @@ app.get('/api/config/paypal',(req, res)=>{
 app.use('/api/products', productRouter)
 app.use('/api/users', userRouter)
 app.use('/api/orders', ordersRouter)
+app.use('/api/upload', uploadRouter)
 
 const PORT = process.env.PORT|| 5000;
 
