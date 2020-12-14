@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv'
 import path from 'path'
 import colors from 'colors'
+import morgan from 'morgan'
+
 
 import productRouter from './Routes/productRoutes.js'
 import userRouter from './Routes/userRouter.js'

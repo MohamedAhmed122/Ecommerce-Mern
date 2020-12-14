@@ -28,7 +28,8 @@ export default function Navbar() {
             setOpenMenu(true);
 
         }
-      };
+    };
+
     useEffect(()=>{
         setDisplayNav(false)
     },[location.pathname])
