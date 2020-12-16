@@ -48,7 +48,9 @@ export default function RegisterForm() {
                     validationSchema={validationSchema}
                     onSubmit={(values) =>{
                        dispatch(userRegister( values.name, values.email, values.password))
-                       history.push(redirect)
+                       if(!error){
+                        history.push(redirect)
+                        }
                     }}
                 >
                     {({ dirty,isSubmitting, isValid })=>(

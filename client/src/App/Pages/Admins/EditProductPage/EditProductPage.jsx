@@ -15,6 +15,8 @@ import { adminUpdateProduct } from '../../../Redux/Admin/Admin-update-product/up
 import {productDetail} from '../../../Redux/products/ProductListDetails/ProductDetailActions'
 import Loading from '../../../Common/Loading';
 
+import './Edits.css'
+
 
 const validationSchema = Yup.object({
     name: Yup.string().required(),
@@ -46,10 +48,10 @@ export default function EditProductPage() {
     if(loading)  return <Loading />
 
     return (
-        <div className='login_screen'>
-            <Card  className="card_register">
+        <div className='edit_screen'>
+            <Card  className="card_edit">
                 <h1>Edit Product</h1>
-                <div className='login_form_container'>
+                <div className='edit_form_container'>
                     
                     <Formik
                         initialValues={{

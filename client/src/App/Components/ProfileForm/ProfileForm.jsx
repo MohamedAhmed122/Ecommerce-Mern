@@ -35,20 +35,22 @@ export default function LoginForm() {
         if(!isAuthenticated){
             history.push('/')
         }else{
-            dispatch(getUserProfile('profile'))
+            dispatch(getUserProfile())
         }
     },[isAuthenticated,history, dispatch, currentUser])
 
+    console.log(currentUser);
+
   
     return (
-        <Card  className='profile_card'>
+        <Card  className='card_login_form' style={{marginTop:"5rem"}}>
             <h1>Update your profile</h1>
-            <div className='profile_form'>
+            <div className='login_form_container'>
                 
                 <Formik
                     initialValues={{
-                        name: userProfile?.name || '',
-                        email: userProfile?.email ||'',
+                        name: currentUser?.name || '',
+                        email: currentUser?.email ||'',
                         password: '', 
                         confirmPassword: ''
                     }}

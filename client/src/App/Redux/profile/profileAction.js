@@ -9,7 +9,7 @@ import {
 } from "./profileTypes";
 
 
-export const getUserProfile = (id ='profile', ) => async(dispatch, getState) =>{
+export const getUserProfile = () => async(dispatch, getState) =>{
    try {
         dispatch({type: USER_PROFILE_REQUEST})
 

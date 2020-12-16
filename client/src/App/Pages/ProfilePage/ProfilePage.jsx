@@ -4,7 +4,7 @@ import './StyleProfilePage.css'
 
 export default function ProfilePage() {
     return (
-        <div className='profile_page'>
+        <div className='login_screen'>
             <ProfileForm />
             <div style={{width: '60vw'}}></div>
             
