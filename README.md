@@ -3,7 +3,7 @@ E-commerce app MERN Stack
 # visit the Platform 
 https://pro-e-commerce.herokuapp.com
 # Features
-Full featured shopping cart
+#Full featured shopping cart
 Product reviews and ratings
 Top products carousel
 Product pagination
