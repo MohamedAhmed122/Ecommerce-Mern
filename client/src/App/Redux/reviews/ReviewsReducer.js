@@ -5,7 +5,7 @@ import {
 } from "./ReviewsType";
 
 
-const reviewReducer = (state, {type, payload}) =>{
+const reviewReducer = (state ={ success: false}, {type, payload}) =>{
 
     switch(type){
         case CREATE_REVIEW_REQUEST:

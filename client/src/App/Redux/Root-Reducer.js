@@ -43,7 +43,7 @@ const rootReducer = combineReducers({
    createProduct : createProductReducer,
    updateProduct :updateProductReducer,
    getOrders: getOrdersReducer,
-   review: reviewReducer,
+   reviews: reviewReducer,
 });
 export default persistReducer(persistConfig, rootReducer);
 

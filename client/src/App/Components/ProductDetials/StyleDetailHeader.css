@@ -32,7 +32,25 @@
     margin-top: 24px;
     margin-right: 10px;
 }
-
+.form_review{
+    display: flex;
+    flex-direction: column;
+    width: 31rem;
+    margin-top: 4rem;
+}
+.form_review .form_select{
+    margin-bottom: 20px;
+}
+.review_btn{
+    height: 35px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    background-color: black;
+    margin-top: 1.5rem;
+}
 
 
 .description{
@@ -61,5 +79,9 @@
     }
     .description{
         width: 70vw;
+    }
+    .form_review{
+        width: 26rem;
+
     }
 }
