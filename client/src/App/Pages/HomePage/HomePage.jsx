@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import { productList } from '../../Redux/products/ProductList/ProductListAction'
 
 import ProductCard from '../../Components/ProductCard/ProductCard'
 import {  useDispatch, useSelector } from 'react-redux'
-import Pagination from '@material-ui/lab/Pagination';
 
 import './style.css'
 import Loading from '../../Common/Loading'
 import Paginate from '../Paginate/Paginate';
-// import Paginate from '../Paginate/Paginate';
+import { Container } from '@material-ui/core';
 
 
 export default function HomePage({match, history}) {
@@ -17,10 +16,7 @@ export default function HomePage({match, history}) {
   const { products, loading, pages, page } = useSelector(state => state.productList)
   const keyword = match.params.keyword
   const pageNumber = match.params.pageNumber
-  const [value, setValue] = useState()
-  console.log(value);
   const dispatch = useDispatch();
-  
     
     useEffect(()=>{
       dispatch(productList(keyword, pageNumber))
@@ -40,11 +36,13 @@ export default function HomePage({match, history}) {
             )
           }
         </div>
-        <Paginate
-             pages={pages}
-             page={page}
-             keyword={keyword ? keyword : ''}
-          />
+        <Container>
+          <Paginate
+              pages={pages}
+              page={page}
+              keyword={keyword ? keyword : ''}
+            />
+        </Container>
       </div>
     )
 }
