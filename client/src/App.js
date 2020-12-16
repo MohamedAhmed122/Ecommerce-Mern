@@ -29,6 +29,9 @@ function App() {
           <Switch>
             <Route exact path='/' component={HomePage} />
             <Route  path='/search/:keyword' component={HomePage} />
+            <Route  path='/page/:pageNumber' component={HomePage} />
+            <Route  path='/search/:keyword/page/:pageNumber' component={HomePage} />
+
             <Route  path='/product/:id' component={ProductDetailedPage} />
             <Route  path='/cart/:id?' component={CartPage} />
             <Route path='/login' component={LoginScreen} />

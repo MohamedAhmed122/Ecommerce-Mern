@@ -19,7 +19,9 @@ const productListReducer = (state = initialState, {type, payload}) =>{
             return{
                 ...state,
                 loading: false,
-                products: payload,
+                products: payload.products,
+                pages: payload.pages,
+                page: payload.page
             }
         case PRODUCT_LIST_ERROR:
             return{
