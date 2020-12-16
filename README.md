@@ -1,5 +1,7 @@
 # Ecommerce-Mern
 E-commerce app MERN Stack
+
+# image
 https://i.ibb.co/JqVJGBV/Screenshot-2020-12-16-at-22-18-53.png
 ![alt text](https://i.ibb.co/JqVJGBV/Screenshot-2020-12-16-at-22-18-53.png)
 # visit the Platform 
