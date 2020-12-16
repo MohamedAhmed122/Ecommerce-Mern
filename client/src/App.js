@@ -18,7 +18,6 @@ import EditUserPage from './App/Pages/Admins/EditUserPage/EditUserPage';
 import ProductListPage from './App/Pages/Admins/ProductsPage/ProductsPage';
 import EditProductPage from "./App/Pages/Admins/EditProductPage/EditProductPage"
 import OrdersPage from './App/Pages/Admins/OrdersPage/OrdersPage';
-import ResponsiveHeader from './App/Layouts/Navbar/ResponsiveNavbar/ResponsiveNavbar';
 
 
 
@@ -29,6 +28,7 @@ function App() {
         <Navbar />
           <Switch>
             <Route exact path='/' component={HomePage} />
+            <Route  path='/search/:keyword' component={HomePage} />
             <Route  path='/product/:id' component={ProductDetailedPage} />
             <Route  path='/cart/:id?' component={CartPage} />
             <Route path='/login' component={LoginScreen} />

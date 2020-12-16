@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation,  } from 'react-router-dom'
-import CustomInput from '../../Components/CustomInput/CustomInput'
+import CustomInput from '../../Components/CustomSearch/CustomSearch'
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import PersonIcon from '@material-ui/icons/Person';
@@ -47,7 +47,7 @@ export default function Navbar() {
                 <Hidden mdDown>
                     <div className='logo'>
                         <Link to='/'>
-                            <Logo />
+                            <Logo /> 
                         </Link>
                     </div>
                     <div className='navbar__search'> 

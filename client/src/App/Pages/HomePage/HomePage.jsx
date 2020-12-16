@@ -9,16 +9,16 @@ import './style.css'
 import Loading from '../../Common/Loading'
 
 
-export default function HomePage() {
+export default function HomePage({match}) {
 
   const { products, loading } = useSelector(state => state.productList)
- 
+  const keyword = match.params.keyword
   const dispatch = useDispatch();
     
     useEffect(()=>{
-      dispatch(productList())
+      dispatch(productList(keyword))
     
-    },[dispatch])
+    },[dispatch, keyword])
 
     if( loading) return <Loading  />
     return (

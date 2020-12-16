@@ -33,7 +33,7 @@ export default function ProductDescription({product }) {
     return (
         <div className='product_description'>
             <Typography  variant="h5" component="h2">
-                 Descripation
+                 Description
             </Typography>
             <Typography className='description' variant="body2" color="textSecondary" component="p">
                 {product.description}
