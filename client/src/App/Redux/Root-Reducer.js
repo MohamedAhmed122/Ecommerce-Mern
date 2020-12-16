@@ -18,6 +18,7 @@ import removeProductReducer from "./Admin/Admin-delete-product/RemoveProductRedu
 import createProductReducer from "./Admin/Admin-create-product/CreateProductReducer";
 import updateProductReducer from "./Admin/Admin-update-product/updateProductReducer";
 import getOrdersReducer from "./Admin/Admin-get-orders/GetOrdersReducer";
+import reviewReducer from "./reviews/ReviewsReducer";
 
 const persistConfig = {
    key: "cart",
@@ -42,6 +43,7 @@ const rootReducer = combineReducers({
    createProduct : createProductReducer,
    updateProduct :updateProductReducer,
    getOrders: getOrdersReducer,
+   review: reviewReducer,
 });
 export default persistReducer(persistConfig, rootReducer);
 

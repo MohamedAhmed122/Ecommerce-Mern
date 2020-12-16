@@ -26,7 +26,7 @@ export default function ProductDetailedPage() {
     return (
         <div style={{marginTop: 200}}>
             <Container>
-            {/* {error && <Alert  severity="error">{error}</Alert>} */}
+            {error && <Alert  severity="error">{error}</Alert>}
                 <Header product={product}/>
                 <ProductDescription product={product} />
             </Container>
