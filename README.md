@@ -1,11 +1,11 @@
 # Ecommerce-Mern
 E-commerce app MERN Stack
-
+# visit the Platform 
+https://pro-e-commerce.herokuapp.com
 # image
 https://i.ibb.co/JqVJGBV/Screenshot-2020-12-16-at-22-18-53.png
 ![alt text](https://i.ibb.co/JqVJGBV/Screenshot-2020-12-16-at-22-18-53.png)
-# visit the Platform 
-https://pro-e-commerce.herokuapp.com
+
 # Features
 #Full featured shopping cart
 Product reviews and ratings
